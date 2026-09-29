@@ -1,0 +1,14 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# dependency / build (none currently — static, no build step)
+node_modules/
+dist/
+.cache/
+
+# local env
+.env
+.env.*

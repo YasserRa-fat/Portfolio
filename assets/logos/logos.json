@@ -1,0 +1,118 @@
+{
+ "python": {
+  "name": "Python",
+  "hex": "#3776AB"
+ },
+ "pytorch": {
+  "name": "PyTorch",
+  "hex": "#EE4C2C"
+ },
+ "huggingface": {
+  "name": "Hugging Face",
+  "hex": "#FF9D00"
+ },
+ "langchain": {
+  "name": "LangChain",
+  "hex": "#1C3C3C"
+ },
+ "anthropic": {
+  "name": "Anthropic",
+  "hex": "#1A1A1A"
+ },
+ "javascript": {
+  "name": "JavaScript",
+  "hex": "#C9A400"
+ },
+ "typescript": {
+  "name": "TypeScript",
+  "hex": "#3178C6"
+ },
+ "react": {
+  "name": "React",
+  "hex": "#149ECA"
+ },
+ "vite": {
+  "name": "Vite",
+  "hex": "#646CFF"
+ },
+ "nodedotjs": {
+  "name": "Node.js",
+  "hex": "#5FA04E"
+ },
+ "tailwindcss": {
+  "name": "Tailwind",
+  "hex": "#0EA5C4"
+ },
+ "django": {
+  "name": "Django",
+  "hex": "#0C4B33"
+ },
+ "fastapi": {
+  "name": "FastAPI",
+  "hex": "#009688"
+ },
+ "graphql": {
+  "name": "GraphQL",
+  "hex": "#E10098"
+ },
+ "socketdotio": {
+  "name": "Socket.io",
+  "hex": "#1A1A1A"
+ },
+ "postgresql": {
+  "name": "PostgreSQL",
+  "hex": "#4169E1"
+ },
+ "mysql": {
+  "name": "MySQL",
+  "hex": "#4479A1"
+ },
+ "redis": {
+  "name": "Redis",
+  "hex": "#D82C20"
+ },
+ "mongodb": {
+  "name": "MongoDB",
+  "hex": "#47A248"
+ },
+ "docker": {
+  "name": "Docker",
+  "hex": "#2496ED"
+ },
+ "kubernetes": {
+  "name": "Kubernetes",
+  "hex": "#326CE5"
+ },
+ "amazonwebservices": {
+  "name": "AWS",
+  "hex": "#E88A00"
+ },
+ "nginx": {
+  "name": "Nginx",
+  "hex": "#009639"
+ },
+ "githubactions": {
+  "name": "GitHub Actions",
+  "hex": "#2088FF"
+ },
+ "linux": {
+  "name": "Linux",
+  "hex": "#333333"
+ },
+ "postman": {
+  "name": "Postman",
+  "hex": "#FF6C37"
+ },
+ "pandas": {
+  "name": "pandas",
+  "hex": "#150458"
+ },
+ "numpy": {
+  "name": "NumPy",
+  "hex": "#4DABCF"
+ },
+ "redux": {
+  "name": "Redux",
+  "hex": "#764ABC"
+ }
+}

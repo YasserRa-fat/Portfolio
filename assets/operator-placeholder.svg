@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="Operator portrait placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B2026"/><stop offset="1" stop-color="#14181C"/>
+    </linearGradient>
+    <linearGradient id="sig" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F7C766"/><stop offset="1" stop-color="#F2B33D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <g stroke="#2A3138" stroke-width="1">
+    <path d="M0 46 H400 M0 92 H400 M0 138 H400 M0 184 H400 M0 230 H400 M0 276 H400 M0 322 H400 M0 368 H400 M0 414 H400 M0 460 H400"/>
+    <path d="M46 0 V500 M92 0 V500 M138 0 V500 M184 0 V500 M230 0 V500 M276 0 V500 M322 0 V500 M368 0 V500"/>
+  </g>
+  <circle cx="200" cy="196" r="74" fill="none" stroke="url(#sig)" stroke-width="2.5" opacity="0.9"/>
+  <circle cx="200" cy="186" r="42" fill="#0D1013" opacity="0.55"/>
+  <path d="M128 356 q72 -104 144 0 q0 44 -72 44 q-72 0 -72 -44 Z" fill="#0D1013" opacity="0.55"/>
+  <circle cx="200" cy="186" r="42" fill="none" stroke="#6FB7C7" stroke-width="1.5" opacity="0.5"/>
+  <text x="200" y="452" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="15" fill="#9AA6B0">operator portrait</text>
+  <text x="200" y="474" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" fill="#6B7680">drop assets/yasser.jpg</text>
+</svg>
