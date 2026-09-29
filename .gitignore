@@ -12,3 +12,6 @@ dist/
 # local env
 .env
 .env.*
+
+# internal planning scaffolding — not part of the client-facing portfolio
+docs/
