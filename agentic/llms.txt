@@ -1,0 +1,28 @@
+# Yasser Ahmad Raafat — Agentic AI & RAG Systems Engineer
+
+> Cairo-based senior AI engineer who designs and builds production agentic AI and RAG systems:
+> hybrid retrieval, agent orchestration, evaluation harnesses, guardrails, and MCP tooling.
+
+## Summary
+Yasser Raafat builds production-grade autonomous agent and RAG systems end to end. He architected and
+built CoreFusion — a full autonomous agent developer platform (sandboxed agent runtime, Book-RAG code
+intelligence, an RBAC-scoped memory plane, a runtime MCP integration layer, and a payments/LMS
+ecosystem) — solo, as independent R&D. The codebase and its ~1,110 tests (853 Python + 257 Vitest)
+exist; it was not publicly deployed. Proof is a code walkthrough, not a live demo URL.
+
+## What he does (services)
+- Production RAG systems: hybrid dense+sparse retrieval, RRF fusion, reranking, pgvector.
+- Agent orchestration: tool/function calling, guardrails, MCP server integration.
+- Evaluation: SWE-bench-caliber eval harnesses, red-teaming, RLHF/DPO/SFT data design.
+- Delivery: "The Production RAG Sprint" — scope, build, eval-gate, handoff. Pricing shared on contact.
+
+## Background
+- LLM Post-Training Lead, Outlier AI (Scale AI platform), 2024–2026: led 2,000+ contributors; Cursor
+  fast-apply fine-tune (~13x speedup), Perplexity r1-1776 (40k+ prompts), SWE-bench Verified (+40%).
+- AI Engineer, frontier eval & post-training, Alignerr, 2026–present.
+- Full-stack engineer (production React/Node/Postgres platform).
+
+## Contact
+- Email: yasserwork123@gmail.com
+- LinkedIn: https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164
+- GitHub: https://github.com/YasserRa-fat

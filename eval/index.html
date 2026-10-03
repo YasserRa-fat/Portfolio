@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Yasser Raafat — LLM Post-Training & Evaluation Specialist</title>
+<meta name="description" content="LLM post-training and evaluation: RLHF/DPO/SFT data design, SWE-bench-caliber eval harnesses, red-teaming. Former Scale AI / Outlier Post-Training Lead (2,000+ contributors), active Alignerr evaluator.">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yasser Raafat — LLM Post-Training & Evaluation Specialist">
+<meta property="og:description" content="Frontier-model post-training & evaluation, measured. RLHF/DPO/SFT, eval harnesses, red-teaming. Ex Scale/Outlier Post-Training Lead.">
+<meta property="og:url" content="https://yasserra-fat.github.io/Portfolio/eval/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Yasser Raafat — LLM Post-Training & Evaluation Specialist">
+<link rel="canonical" href="https://yasserra-fat.github.io/Portfolio/eval/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f3f1ec'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='700' font-size='17' fill='%23070707' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Person","name":"Yasser Ahmad Raafat","jobTitle":"LLM Post-Training & Evaluation Specialist",
+     "address":{"@type":"PostalPlace","addressLocality":"Cairo","addressCountry":"EG"},
+     "email":"mailto:yasserwork123@gmail.com","url":"https://yasserra-fat.github.io/Portfolio/eval/",
+     "sameAs":["https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164","https://github.com/YasserRa-fat"],
+     "description":"LLM post-training and evaluation specialist. Former Outlier AI (Scale AI) Post-Training Lead who directed 2,000+ contributors across RLHF/DPO/SFT campaigns; active frontier-model evaluator at Alignerr."},
+    {"@type":"ProfessionalService","name":"Yasser Raafat — LLM Post-Training & Evaluation",
+     "serviceType":"LLM post-training, RLHF/DPO/SFT data design, and model evaluation",
+     "provider":{"@type":"Person","name":"Yasser Ahmad Raafat"},"areaServed":"Worldwide"}
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#070707; --bg-2:#0d0d0d; --fg:#f3f1ec; --muted:#8c8c86; --dim:#565652;
+    --line:rgba(243,241,236,.13); --line-2:rgba(243,241,236,.26);
+    --maxw:1280px; --ease:cubic-bezier(.19,1,.22,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{background:var(--bg);color:var(--fg);font-family:"General Sans",system-ui,sans-serif;font-weight:400;line-height:1.5;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4vw,56px)}
+  .label{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
+
+  .grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation:grain 7s steps(6) infinite}
+  @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-3%,4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
+  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(130% 100% at 50% 0%,transparent 55%,rgba(0,0,0,.6))}
+  .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--fg);z-index:90;pointer-events:none;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),opacity .3s;mix-blend-mode:difference}
+  .cursor.big{width:64px;height:64px}
+  @media (hover:none){.cursor{display:none}}
+
+  header.nav{position:fixed;top:0;left:0;right:0;z-index:40;mix-blend-mode:difference}
+  .nav .bar{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .brand{font-family:"Clash Display";font-weight:600;font-size:1.05rem;letter-spacing:.02em}
+  .navlinks{display:flex;gap:38px;font-size:.92rem}
+  .navlinks a{position:relative;overflow:hidden;padding-bottom:2px}
+  .navlinks a span{display:inline-block;transition:transform .5s var(--ease)}
+  .navlinks a::after{content:attr(data-t);position:absolute;left:0;top:100%;transition:transform .5s var(--ease)}
+  .navlinks a:hover span{transform:translateY(-110%)}
+  .navlinks a:hover::after{transform:translateY(-100%)}
+
+  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-block:clamp(120px,18vh,200px) clamp(40px,6vw,72px);position:relative;z-index:2}
+  .hero .label{display:flex;align-items:center;gap:12px;margin-bottom:clamp(24px,3vw,38px)}
+  .dotpulse{width:7px;height:7px;border-radius:50%;background:var(--fg);animation:pulse 2.4s var(--ease) infinite}
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+  h1.mega{font-family:"Clash Display";font-weight:600;line-height:.9;letter-spacing:-.03em;font-size:clamp(2.1rem,8.4vw,7.4rem);text-transform:uppercase;max-width:100%}
+  .line{display:block;overflow:hidden}.line>span{display:block;white-space:nowrap;will-change:transform}
+  .hero .rt{max-width:52ch;color:var(--muted);font-size:clamp(1rem,1.5vw,1.2rem);margin-top:clamp(24px,3vw,36px)}
+  .hero .rt b{color:var(--fg);font-family:"Clash Display";font-weight:600}
+  .hero .cta{margin-top:clamp(28px,4vw,40px)}
+
+  .magnetic{position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border:1px solid var(--line-2);border-radius:100px;font-weight:500;overflow:hidden;will-change:transform}
+  .magnetic .fill{position:absolute;inset:0;background:var(--fg);border-radius:100px;transform:translateY(101%);transition:transform .55s var(--ease);z-index:0}
+  .magnetic:hover .fill{transform:translateY(0)}
+  .magnetic span{position:relative;z-index:1;transition:color .4s var(--ease) .05s}
+  .magnetic:hover span{color:var(--bg)}
+
+  .metrics{border-top:1px solid var(--line);border-bottom:1px solid var(--line);position:relative;z-index:2}
+  .metrics .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+  .metrics .m{padding:clamp(28px,4vw,52px) clamp(18px,2vw,30px);border-left:1px solid var(--line)}
+  .metrics .m:first-child{border-left:0}
+  .metrics .v{font-family:"Clash Display";font-weight:600;font-size:clamp(2.1rem,4.4vw,3.6rem);line-height:1}
+  .metrics .k{color:var(--dim);font-size:.82rem;margin-top:12px;letter-spacing:.03em;max-width:20ch}
+  @media(max-width:820px){.metrics .grid{grid-template-columns:1fr 1fr}.metrics .m:nth-child(odd){border-left:0}.metrics .m:nth-child(n+3){border-top:1px solid var(--line)}}
+
+  section{position:relative;z-index:2;padding-block:clamp(80px,13vw,190px)}
+  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vw,56px)}
+  .eyebrow::before{content:"";width:40px;height:1px;background:var(--line-2)}
+  h2{font-family:"Clash Display";font-weight:600;letter-spacing:-.025em;line-height:.98;font-size:clamp(2rem,5.6vw,4.6rem);text-transform:uppercase}
+  .reveal-line{display:block;overflow:hidden}.reveal-line>span{display:block}
+
+  .rtable{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line)}
+  .rrow{display:grid;grid-template-columns:1.4fr 1fr 2fr;gap:clamp(16px,3vw,44px);padding:clamp(22px,3vw,34px) 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding-left .5s var(--ease)}
+  .rrow:hover{padding-left:16px}
+  .rrow .proj{font-family:"Clash Display";font-weight:600;font-size:clamp(1.15rem,2vw,1.7rem);text-transform:uppercase}
+  .rrow .big{font-family:"Clash Display";font-weight:600;font-size:clamp(1.4rem,2.6vw,2.4rem)}
+  .rrow .desc{color:var(--muted);font-size:.96rem}
+  .rrow.head{color:var(--dim);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+  .rrow.head .proj,.rrow.head .big{font-family:"General Sans";font-weight:500;font-size:.74rem;text-transform:uppercase}
+  @media(max-width:760px){.rrow{grid-template-columns:1fr;gap:6px}.rrow.head{display:none}}
+
+  .caps{margin-top:clamp(40px,5vw,64px);border-top:1px solid var(--line)}
+  .cap{display:grid;grid-template-columns:72px 1fr 1.3fr;gap:clamp(16px,3vw,44px);align-items:baseline;padding:clamp(22px,3vw,32px) 0;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease)}
+  .cap:hover{padding-left:16px}
+  .cap .idx{font-size:.8rem;color:var(--dim);letter-spacing:.1em}
+  .cap h3{font-family:"Clash Display";font-weight:600;font-size:clamp(1.25rem,2.2vw,1.9rem);text-transform:uppercase}
+  .cap p{color:var(--muted);font-size:.98rem}
+  @media(max-width:760px){.cap{grid-template-columns:1fr}.cap .idx{display:none}}
+
+  .xp .row{display:grid;grid-template-columns:200px 1fr;gap:clamp(16px,3vw,40px);padding:clamp(26px,3vw,38px) 0;border-top:1px solid var(--line)}
+  .xp .row:last-child{border-bottom:1px solid var(--line)}
+  .xp .when{color:var(--dim);font-size:.86rem}
+  .xp .role{font-family:"Clash Display";font-weight:600;font-size:clamp(1.3rem,2.2vw,1.9rem);text-transform:uppercase;margin-bottom:6px}
+  .xp .org{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+  .xp .row p{color:var(--muted);font-size:.98rem;max-width:62ch}
+  @media(max-width:760px){.xp .row{grid-template-columns:1fr;gap:8px}}
+
+  .work{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
+  .steps{display:grid;gap:4px;margin-top:6px}
+  .steps .st{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+  .steps .st:last-child{border-bottom:1px solid var(--line)}
+  .steps .num{color:var(--dim);font-size:.85rem}
+  .steps .b{font-family:"Clash Display";font-weight:600;text-transform:uppercase;font-size:1.15rem;display:block;margin-bottom:5px}
+  .steps .d{color:var(--muted);font-size:.96rem}
+  .pricing{margin-top:30px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;color:var(--muted)}
+  .pricing b{color:var(--fg);font-family:"Clash Display";font-weight:600}
+  .slot{margin-top:clamp(50px,7vw,90px);border:1px dashed var(--line-2);border-radius:16px;padding:40px;text-align:center;color:var(--dim)}
+  .slot b{color:var(--fg);font-family:"Clash Display";font-weight:600}
+  @media(max-width:760px){.work{grid-template-columns:1fr}}
+
+  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding-block:clamp(60px,9vw,120px)}
+  .cta-huge{font-family:"Clash Display";font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;font-size:clamp(2.2rem,8vw,7rem);display:inline-block}
+  .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:clamp(40px,6vw,70px);align-items:center}
+  .foot-row .links{display:flex;gap:30px;flex-wrap:wrap}
+  .foot-row a{color:var(--muted);font-size:.98rem}.foot-row a:hover{color:var(--fg)}
+  .copyright{color:var(--dim);font-size:.8rem;margin-top:22px}
+
+  ::selection{background:var(--fg);color:var(--bg)}
+  :focus-visible{outline:2px solid var(--fg);outline-offset:4px}
+  html.no-js .line>span,html.no-js .reveal-line>span{transform:none!important}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  @media(max-width:820px){.navlinks{display:none}.work{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.remove('no-js');</script>
+<div class="grain" aria-hidden="true"></div>
+<div class="vign" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<header class="nav"><div class="wrap bar">
+  <a class="brand" href="#top" data-cursor>Yasser Raafat</a>
+  <nav class="navlinks" aria-label="Primary">
+    <a href="#results" data-cursor data-t="Results"><span>Results</span></a>
+    <a href="#capabilities" data-cursor data-t="Capabilities"><span>Capabilities</span></a>
+    <a href="#experience" data-cursor data-t="Experience"><span>Experience</span></a>
+    <a href="#contact" data-cursor data-t="Contact"><span>Contact</span></a>
+  </nav>
+</div></header>
+
+<main id="top">
+  <section class="hero wrap">
+    <p class="label"><span class="dotpulse"></span>RLHF · DPO · SFT · Evaluation — Cairo, remote</p>
+    <h1 class="mega" aria-label="Post-training and evaluation">
+      <span class="line"><span>Post-Training</span></span>
+      <span class="line"><span>&amp; Evaluation</span></span>
+    </h1>
+    <p class="rt"><b>Frontier models, measured and made reliable.</b> I design RLHF/DPO/SFT data, build SWE-bench-caliber evaluation harnesses, and run red-teaming — turning senior engineering judgment into training signal.</p>
+    <div class="cta"><a class="magnetic" href="#contact" data-cursor data-magnetic><span class="fill"></span><span>Start a project &nbsp;↗</span></a></div>
+  </section>
+
+  <div class="metrics"><div class="wrap"><div class="grid">
+    <div class="m"><div class="v" data-count="2000" data-suf="+">2,000+</div><div class="k">expert contributors led</div></div>
+    <div class="m"><div class="v" data-count="40" data-pre="+" data-suf="%">+40%</div><div class="k">SWE-bench Verified accuracy from SFT</div></div>
+    <div class="m"><div class="v" data-count="13" data-pre="~" data-suf="×">~13×</div><div class="k">inference speedup, Cursor fast-apply</div></div>
+    <div class="m"><div class="v" data-count="40000" data-suf="+">40,000+</div><div class="k">preference prompts, Perplexity r1-1776</div></div>
+  </div></div></div>
+
+  <section class="wrap" id="results">
+    <p class="eyebrow label">01 — Track record</p>
+    <h2 class="reveal-line"><span>Campaigns that moved</span></h2>
+    <h2 class="reveal-line"><span>the benchmark.</span></h2>
+    <div class="rtable">
+      <div class="rrow head"><div class="proj">Project</div><div class="big">Result</div><div class="desc">What I did</div></div>
+      <div class="rrow" data-cursor><div class="proj">Cursor fast-apply</div><div class="big">~13× faster</div><div class="desc">Annotation + data curation for the Llama-3-70B fine-tune — surpassed GPT-4/4o on full-file edit accuracy, &gt;1,000 tok/s (450-edit benchmark, Claude-3-Opus graded).</div></div>
+      <div class="rrow" data-cursor><div class="proj">Perplexity r1-1776</div><div class="big">100% uncensored</div><div class="desc">40,000+ multilingual preference prompts — 100% uncensored response rate vs 85% baseline, scores preserved across MMLU, DROP, MATH-500, AIME.</div></div>
+      <div class="rrow" data-cursor><div class="proj">SWE-bench / SEAL</div><div class="big">+40% accuracy</div><div class="desc">Directed Verified + SEAL campaigns — SFT datasets raised task accuracy 40%, automation cut processing time 40%, QA cut annotation defects 35%.</div></div>
+      <div class="rrow" data-cursor><div class="proj">Claude Code · Alignerr</div><div class="big">Tool-use + reasoning</div><div class="desc">Post-training targeting multi-step reasoning, tool-use reliability, and repo-level context in production agentic coding systems.</div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="capabilities">
+    <p class="eyebrow label">02 — What I do</p>
+    <h2 class="reveal-line"><span>Post-training,</span></h2>
+    <h2 class="reveal-line"><span>end to end.</span></h2>
+    <div class="caps">
+      <div class="cap" data-cursor><span class="idx">(01)</span><h3>RLHF / DPO / SFT data</h3><p>Preference-data pipelines and reward-signal design that convert expert judgment into high-signal training data.</p></div>
+      <div class="cap" data-cursor><span class="idx">(02)</span><h3>Eval harness design</h3><p>SWE-bench-caliber, reproducible evaluation harnesses — the gate that proves a model actually improved.</p></div>
+      <div class="cap" data-cursor><span class="idx">(03)</span><h3>Benchmark design</h3><p>Coding + reasoning benchmarks and expert preference loops tuned to the behavior you need to move.</p></div>
+      <div class="cap" data-cursor><span class="idx">(04)</span><h3>Red-teaming</h3><p>Adversarial evaluation and model-behavior verification — reasoning-chain quality, refusal calibration, safety.</p></div>
+      <div class="cap" data-cursor><span class="idx">(05)</span><h3>Contributor operations</h3><p>Running large distributed annotation networks with QA frameworks that keep label quality high at scale.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="experience">
+    <p class="eyebrow label">03 — Experience</p>
+    <div class="xp" style="margin-top:clamp(20px,4vw,40px)">
+      <div class="row" data-cursor><div class="when">2024 — 2026</div><div><div class="role">LLM Post-Training Lead</div><div class="org">Outlier AI · Scale AI platform</div><p>Led a distributed network of 2,000+ expert contributors running large-scale RLHF/DPO/SFT across GPT-4o/4.5, Claude 3.5/4, Gemini 2.x, Llama 3/4 — a lead, not a reselling marketplace. Drove the Cursor and Perplexity campaigns and the SWE-bench Verified / SEAL programs.</p></div></div>
+      <div class="row" data-cursor><div class="when">2026 — now</div><div><div class="role">AI Engineer — Frontier Eval</div><div class="org">Alignerr</div><p>Active frontier-model evaluator: Claude Code post-training, coding benchmarks, and expert preference feedback loops for frontier labs.</p></div></div>
+      <div class="row" data-cursor><div class="when">2023 — now</div><div><div class="role">Founder — CoreFusion</div><div class="org">Independent R&amp;D (built solo, not deployed)</div><p>Also builds the systems: architected and built CoreFusion, a full autonomous agent developer platform (~1,110 tests), solo as personal R&amp;D — so the eval work is grounded in real production-agent engineering, not theory.</p></div></div>
+    </div>
+  </section>
+
+  <section class="wrap" id="work">
+    <p class="eyebrow label">04 — Work with me</p>
+    <div class="work">
+      <div>
+        <h2 class="reveal-line"><span>The Eval</span></h2>
+        <h2 class="reveal-line"><span>Sprint.</span></h2>
+        <p style="font-size:1rem;color:var(--muted);margin-top:22px;max-width:40ch">A fixed-scope engagement to stand up the evaluation and post-training signal your model needs — so you can prove improvement instead of guessing at it.</p>
+        <div class="pricing"><b>Pricing shared on contact.</b><br>Scope and a quote follow a short call — every engagement is sized to the work.</div>
+      </div>
+      <div class="steps">
+        <div class="st"><span class="num">(01)</span><span><span class="b">Scope</span><span class="d">Define the target behavior and what "better" means as a measurable metric.</span></span></div>
+        <div class="st"><span class="num">(02)</span><span><span class="b">Eval harness</span><span class="d">Build a reproducible evaluation that scores the model on that target, honestly.</span></span></div>
+        <div class="st"><span class="num">(03)</span><span><span class="b">Signal + iterate</span><span class="d">RLHF/DPO/SFT data design and preference loops, measured against the baseline.</span></span></div>
+        <div class="st"><span class="num">(04)</span><span><span class="b">Handoff</span><span class="d">The harness, the data pipeline, and the playbook — yours to keep running.</span></span></div>
+      </div>
+    </div>
+    <div class="slot"><b>Selected engagements</b><br>Case studies land here next — currently under NDA.</div>
+  </section>
+
+  <footer class="wrap" id="contact">
+    <a class="cta-huge" href="mailto:yasserwork123@gmail.com" data-cursor data-magnetic>Let's measure it →</a>
+    <div class="foot-row">
+      <div class="copyright">Yasser Ahmad Raafat · Cairo, Egypt<br>Available for select engagements · 2026</div>
+      <div class="links">
+        <a href="mailto:yasserwork123@gmail.com" data-cursor>Email</a>
+        <a href="https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
+        <a href="https://github.com/YasserRa-fat" target="_blank" rel="noopener" data-cursor>GitHub</a>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var cur=document.getElementById('cursor');
+  if(fine&&cur){
+    var cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
+    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});
+    (function loop(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop)})();
+    document.querySelectorAll('[data-cursor]').forEach(function(el){el.addEventListener('mouseenter',function(){cur.classList.add('big')});el.addEventListener('mouseleave',function(){cur.classList.remove('big')})});
+    document.querySelectorAll('[data-magnetic]').forEach(function(el){el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+(e.clientX-(r.left+r.width/2))*.28+'px,'+(e.clientY-(r.top+r.height/2))*.4+'px)'});el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)'})});
+  } else if(cur){cur.style.display='none';}
+  if(reduce||!window.gsap){return;}
+  if(window.Lenis){
+    var lenis=new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},smoothWheel:true});
+    function raf(t){lenis.raf(t);requestAnimationFrame(raf)} requestAnimationFrame(raf);
+    if(window.ScrollTrigger){lenis.on('scroll',ScrollTrigger.update);}
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10})}}})});
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.set('.hero .line>span',{yPercent:110});
+  gsap.to('.hero .line>span',{yPercent:0,duration:1.25,ease:'expo.out',stagger:.12,delay:.15});
+  gsap.from('.hero .rt,.hero .cta,.hero .label',{y:24,opacity:0,duration:1,ease:'expo.out',stagger:.08,delay:.6});
+  gsap.from('.metrics .m',{y:30,opacity:0,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'.metrics',start:'top 85%'}});
+  gsap.utils.toArray('.reveal-line>span').forEach(function(s){gsap.set(s,{yPercent:110});gsap.to(s,{yPercent:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:s,start:'top 88%'}})});
+  gsap.utils.toArray('.rrow:not(.head),.cap,.xp .row,.steps .st,.pricing,.slot').forEach(function(el){gsap.from(el,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
+  gsap.utils.toArray('.metrics .v[data-count]').forEach(function(el){
+    var end=+el.getAttribute('data-count'),pre=el.getAttribute('data-pre')||'',suf=el.getAttribute('data-suf')||'',o={n:0};
+    gsap.to(o,{n:end,duration:1.7,ease:'power2.out',scrollTrigger:{trigger:'.metrics',start:'top 85%'},onUpdate:function(){el.textContent=pre+Math.round(o.n).toLocaleString()+suf}});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Yasser Ahmad Raafat — LLM Post-Training & Evaluation Specialist
+
+> Cairo-based specialist in LLM post-training and evaluation: RLHF/DPO/SFT data design,
+> SWE-bench-caliber eval harnesses, benchmark design, and red-teaming.
+
+## Summary
+Yasser Raafat is a former Outlier AI (Scale AI platform) LLM Post-Training Lead who directed 2,000+
+expert contributors across RLHF/DPO/SFT campaigns on GPT-4o/4.5, Claude 3.5/4, Gemini 2.x, and Llama
+3/4 — a lead, not a reselling marketplace. He is an active frontier-model evaluator at Alignerr. He
+also architected and built CoreFusion, a full autonomous agent platform (~1,110 tests), solo as
+personal R&D — so his eval work is grounded in real production-agent engineering.
+
+## Verified results
+- Cursor fast-apply (Llama-3-70B): ~13x inference speedup, surpassed GPT-4/4o on full-file edit accuracy.
+- Perplexity r1-1776: 40,000+ multilingual preference prompts; 100% uncensored vs 85% baseline, scores preserved.
+- SWE-bench Verified / SEAL: SFT raised task accuracy +40%, cut processing time 40%, cut defects 35%.
+
+## Services
+- RLHF / DPO / SFT preference-data pipelines and reward-signal design.
+- Evaluation harness design (SWE-bench-caliber, reproducible).
+- Benchmark design, red-teaming, model-behavior verification.
+- "The Eval Sprint" — scope, eval harness, signal + iterate, handoff. Pricing shared on contact.
+
+## Contact
+- Email: yasserwork123@gmail.com
+- LinkedIn: https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164
+- GitHub: https://github.com/YasserRa-fat
