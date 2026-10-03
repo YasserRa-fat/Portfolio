@@ -69,6 +69,8 @@
   @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
   h1.mega{font-family:"Clash Display";font-weight:600;line-height:.9;letter-spacing:-.03em;font-size:clamp(2.1rem,8.4vw,7.4rem);text-transform:uppercase;max-width:100%}
   .line{display:block;overflow:hidden}.line>span{display:block;white-space:nowrap;will-change:transform}
+  .ln{display:block}.ln.stroke{-webkit-text-stroke:1.4px var(--fg);color:transparent}
+  .ch{display:inline-block;will-change:transform}.scramble{font-variant-ligatures:none}
   .hero .rt{max-width:52ch;color:var(--muted);font-size:clamp(1rem,1.5vw,1.2rem);margin-top:clamp(24px,3vw,36px)}
   .hero .rt b{color:var(--fg);font-family:"Clash Display";font-weight:600}
   .hero .cta{margin-top:clamp(28px,4vw,40px)}
@@ -164,10 +166,10 @@
 
 <main id="top">
   <section class="hero wrap">
-    <p class="label"><span class="dotpulse"></span>RLHF · DPO · SFT · Evaluation — Cairo, remote</p>
+    <p class="label"><span class="dotpulse"></span><span class="scramble">RLHF · DPO · SFT · Evaluation — Cairo, remote</span></p>
     <h1 class="mega" aria-label="Post-training and evaluation">
-      <span class="line"><span>Post-Training</span></span>
-      <span class="line"><span>&amp; Evaluation</span></span>
+      <span class="line"><span class="ln fill">Post-Training</span></span>
+      <span class="line"><span class="ln stroke">&amp; Evaluation</span></span>
     </h1>
     <p class="rt"><b>Frontier models, measured and made reliable.</b> I design RLHF/DPO/SFT data, build SWE-bench-caliber evaluation harnesses, and run red-teaming — turning senior engineering judgment into training signal.</p>
     <div class="cta"><a class="magnetic" href="#contact" data-cursor data-magnetic><span class="fill"></span><span>Start a project &nbsp;↗</span></a></div>
@@ -181,7 +183,7 @@
   </div></div></div>
 
   <section class="wrap" id="results">
-    <p class="eyebrow label">01 — Track record</p>
+    <p class="eyebrow label scramble">01 — Track record</p>
     <h2 class="reveal-line"><span>Campaigns that moved</span></h2>
     <h2 class="reveal-line"><span>the benchmark.</span></h2>
     <div class="rtable">
@@ -194,7 +196,7 @@
   </section>
 
   <section class="wrap" id="capabilities">
-    <p class="eyebrow label">02 — What I do</p>
+    <p class="eyebrow label scramble">02 — What I do</p>
     <h2 class="reveal-line"><span>Post-training,</span></h2>
     <h2 class="reveal-line"><span>end to end.</span></h2>
     <div class="caps">
@@ -207,7 +209,7 @@
   </section>
 
   <section class="wrap" id="experience">
-    <p class="eyebrow label">03 — Experience</p>
+    <p class="eyebrow label scramble">03 — Experience</p>
     <div class="xp" style="margin-top:clamp(20px,4vw,40px)">
       <div class="row" data-cursor><div class="when">2024 — 2026</div><div><div class="role">LLM Post-Training Lead</div><div class="org">Outlier AI · Scale AI platform</div><p>Led a distributed network of 2,000+ expert contributors running large-scale RLHF/DPO/SFT across GPT-4o/4.5, Claude 3.5/4, Gemini 2.x, Llama 3/4 — a lead, not a reselling marketplace. Drove the Cursor and Perplexity campaigns and the SWE-bench Verified / SEAL programs.</p></div></div>
       <div class="row" data-cursor><div class="when">2026 — now</div><div><div class="role">AI Engineer — Frontier Eval</div><div class="org">Alignerr</div><p>Active frontier-model evaluator: Claude Code post-training, coding benchmarks, and expert preference feedback loops for frontier labs.</p></div></div>
@@ -216,7 +218,7 @@
   </section>
 
   <section class="wrap" id="work">
-    <p class="eyebrow label">04 — Work with me</p>
+    <p class="eyebrow label scramble">04 — Work with me</p>
     <div class="work">
       <div>
         <h2 class="reveal-line"><span>The Eval</span></h2>
@@ -270,9 +272,16 @@
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10})}}})});
   }
   gsap.registerPlugin(ScrollTrigger);
-  gsap.set('.hero .line>span',{yPercent:110});
-  gsap.to('.hero .line>span',{yPercent:0,duration:1.25,ease:'expo.out',stagger:.12,delay:.15});
-  gsap.from('.hero .rt,.hero .cta,.hero .label',{y:24,opacity:0,duration:1,ease:'expo.out',stagger:.08,delay:.6});
+  function splitLetters(el){var t=el.textContent,frag=document.createDocumentFragment();for(var i=0;i<t.length;i++){var s=document.createElement('span');s.className='ch';s.textContent=(t[i]===' '?' ':t[i]);frag.appendChild(s);}el.textContent='';el.appendChild(frag);return [].slice.call(el.querySelectorAll('.ch'));}
+  var heroChars=[];
+  document.querySelectorAll('.hero .ln').forEach(function(ln){heroChars=heroChars.concat(splitLetters(ln));});
+  gsap.set(heroChars,{yPercent:116});
+  gsap.to(heroChars,{yPercent:0,duration:1.1,ease:'expo.out',stagger:.035,delay:.3});
+  gsap.from('.hero .rt,.hero .cta',{y:26,opacity:0,duration:1,ease:'expo.out',stagger:.1,delay:1});
+  if(fine){var heroEl=document.querySelector('.hero');heroEl.addEventListener('mousemove',function(e){for(var i=0;i<heroChars.length;i++){var ch=heroChars[i],r=ch.getBoundingClientRect();var d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));gsap.to(ch,{y:-20*Math.max(0,1-d/160),duration:.4,ease:'power2.out',overwrite:'auto'});}});heroEl.addEventListener('mouseleave',function(){gsap.to(heroChars,{y:0,duration:.5});});}
+  var glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#*<>';
+  function scramble(el){var full=el.getAttribute('data-final')||el.textContent;el.setAttribute('data-final',full);var fr=0,total=16+full.length*2;var id=setInterval(function(){fr++;var out='',cut=(fr/total)*full.length;for(var i=0;i<full.length;i++){var c=full[i];if(/[^A-Za-z0-9]/.test(c)||i<cut){out+=c;}else{out+=glyphs[(Math.random()*glyphs.length)|0];}}el.textContent=out;if(fr>=total){clearInterval(id);el.textContent=full;}},26);}
+  gsap.utils.toArray('.scramble').forEach(function(el){ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:function(){scramble(el);}});});
   gsap.from('.metrics .m',{y:30,opacity:0,duration:.9,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'.metrics',start:'top 85%'}});
   gsap.utils.toArray('.reveal-line>span').forEach(function(s){gsap.set(s,{yPercent:110});gsap.to(s,{yPercent:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:s,start:'top 88%'}})});
   gsap.utils.toArray('.rrow:not(.head),.cap,.xp .row,.steps .st,.pricing,.slot').forEach(function(el){gsap.from(el,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}})});
