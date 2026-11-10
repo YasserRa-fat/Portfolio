@@ -1,7 +1,8 @@
 # Yasser Raafat — Agentic AI & Systems Engineering
 
-Read the main profile at https://yasserra-fat.github.io/Portfolio/llms.txt.
+This page presents selected engineering work: CoreFusion (autonomous developer platform), a multi-tenant commerce and operations platform, an anonymized production legal-operations automation system, an AI receptionist workflow for service businesses, and a four-agent research pipeline.
 
-This page covers CoreFusion, agentic runtimes, MCP integrations, commerce systems and anonymized legal-operations automation.
+Private and client systems are described without organization names, customer data, credentials, or proprietary source code. Public project links and technical demonstrations should be used where available.
 
 Contact: yasserwork123@gmail.com
+LinkedIn: https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/

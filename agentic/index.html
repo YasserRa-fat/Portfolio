@@ -4,7 +4,63 @@
 <meta name="description" content="Production agentic AI systems, multi-agent orchestration, MCP architecture, retrieval and memory, voice workflows, and full-stack business software.">
 <meta name="theme-color" content="#070707"><meta name="color-scheme" content="dark"><meta property="og:type" content="website"><meta property="og:title" content="Yasser Raafat — Agentic AI &amp; Systems Engineering"><meta property="og:description" content="Agent runtimes, MCP, business workflow automation, and production software."><meta property="og:url" content="https://yasserra-fat.github.io/Portfolio/agentic/">
 <link rel="canonical" href="https://yasserra-fat.github.io/Portfolio/agentic/"><link rel="stylesheet" href="../site.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yasser Ahmad Raafat","jobTitle":"Senior AI Engineer","url":"https://yasserra-fat.github.io/Portfolio/agentic/","sameAs":["https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/","https://github.com/YasserRa-fat"],"knowsAbout":["Agentic AI","Multi-Agent Orchestration","MCP","FastAPI","Go","Elixir","PostgreSQL","RAG","STT","TTS"]}</script></head>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yasser Ahmad Raafat","jobTitle":"Senior AI Engineer","url":"https://yasserra-fat.github.io/Portfolio/agentic/","sameAs":["https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/","https://github.com/YasserRa-fat"],"knowsAbout":["Agentic AI","Multi-Agent Orchestration","MCP","FastAPI","Go","Elixir","PostgreSQL","RAG","STT","TTS"]}</script>
+<style>
+/* Selected projects: editorial layout, diagram motion stays monochrome. */
+#platforms .project-diagram .wide-diagram{display:block}
+#platforms .project-diagram .mobile-diagram{display:none}
+@media(max-width:760px){#platforms .project-diagram .wide-diagram{display:none}#platforms .project-diagram .mobile-diagram{display:block}}
+
+#platforms .projects-lead{display:grid;grid-template-columns:1.05fr .8fr;gap:clamp(24px,5vw,72px);align-items:end;margin-top:30px}
+#platforms .projects-lead p{color:var(--muted);max-width:60ch;margin:0}
+#platforms .project-list{border-top:1px solid var(--line);margin-top:clamp(38px,6vw,68px)}
+#platforms .project{padding:clamp(34px,5vw,58px) 0;border-bottom:1px solid var(--line)}
+#platforms .project-head{display:grid;grid-template-columns:72px minmax(0,1fr) auto;gap:18px;align-items:baseline}
+#platforms .project-no{font-size:.76rem;letter-spacing:.12em;color:var(--dim)}
+#platforms .project-title{font-family:"Clash Display",Arial,sans-serif;font-size:clamp(1.55rem,3.2vw,2.55rem);font-weight:600;line-height:.98;letter-spacing:-.03em;text-transform:uppercase;margin:0}
+#platforms .project-kind{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+#platforms .project-summary{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,70px);margin:22px 0 0 90px;align-items:start}
+#platforms .project-summary .thesis{font-size:clamp(1.02rem,1.4vw,1.16rem);line-height:1.58;color:var(--fg);max-width:58ch;margin:0}
+#platforms .project-summary .detail{color:var(--muted);font-size:.94rem;line-height:1.7;max-width:58ch;margin:0}
+#platforms .project-diagram{margin:30px 0 0 90px;border-block:1px solid var(--line);padding:20px 0 16px;position:relative;overflow:hidden}
+#platforms .diagram-label{display:flex;justify-content:space-between;gap:14px;margin-bottom:16px;color:var(--dim);font-size:.66rem;letter-spacing:.15em;text-transform:uppercase}
+#platforms .project-diagram svg{width:100%;height:auto;display:block;overflow:visible}
+#platforms .project-diagram svg text{font-family:"General Sans",Arial,sans-serif;fill:var(--fg)}
+#platforms .project-diagram .t-kicker{font-size:10px;letter-spacing:1.4px;fill:var(--dim)}
+#platforms .project-diagram .t-title{font-size:15px;font-weight:600}
+#platforms .project-diagram .t-sub{font-size:11px;fill:var(--muted)}
+#platforms .project-diagram .node{fill:#090909;stroke:rgba(243,241,236,.28);stroke-width:1;transition:stroke .35s ease,fill .35s ease}
+#platforms .project-diagram .node.em{fill:#101010;stroke:rgba(243,241,236,.72);stroke-width:1.2}
+#platforms .project-diagram .edge{fill:none;stroke:rgba(243,241,236,.4);stroke-width:1.2}
+#platforms .project-diagram .edge.flow{stroke-dasharray:5 8;animation:projectFlow 8s linear infinite}
+#platforms .project-diagram .edge.return{stroke-dasharray:3 7;opacity:.55;animation:projectFlow 12s linear infinite reverse}
+#platforms .project-diagram .pulse{fill:var(--fg);opacity:.7;transform-box:fill-box;transform-origin:center;animation:nodePulse 3.2s ease-in-out infinite}
+#platforms .project-diagram .diagram-node{cursor:default}
+#platforms .project-diagram .diagram-node:hover .node{stroke:rgba(243,241,236,.9);fill:#151515}
+#platforms .diagram-note{display:flex;justify-content:space-between;gap:18px;color:var(--dim);font-size:.72rem;margin-top:12px}
+#platforms .project-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin:24px 0 0 90px}
+#platforms .fact{border-top:1px solid var(--line);padding-top:12px}
+#platforms .fact b{display:block;font-family:"Clash Display",Arial,sans-serif;font-size:.83rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+#platforms .fact span{display:block;color:var(--muted);font-size:.88rem;line-height:1.6}
+#platforms .stack-line{margin:22px 0 0 90px;color:var(--dim);font-size:.76rem;line-height:1.8}
+#platforms .stack-line strong{color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:.1em;margin-right:10px}
+#platforms .project-link{display:inline-block;margin-left:14px;color:var(--fg);border-bottom:1px solid var(--line2);text-decoration:none;padding-bottom:2px;white-space:nowrap}#platforms .project-link:hover{color:var(--muted)}
+@keyframes projectFlow{to{stroke-dashoffset:-104}}
+@keyframes nodePulse{0%,100%{opacity:.28;transform:scale(.72)}50%{opacity:.9;transform:scale(1.18)}}
+@media(max-width:760px){
+ #platforms .projects-lead{grid-template-columns:1fr;gap:14px}
+ #platforms .project-head{grid-template-columns:38px minmax(0,1fr);gap:10px}
+ #platforms .project-kind{grid-column:2;white-space:normal;margin-top:2px}
+ #platforms .project-summary,#platforms .project-diagram,#platforms .project-facts,#platforms .stack-line{margin-left:48px}
+ #platforms .project-summary{grid-template-columns:1fr;gap:12px}
+ #platforms .project-facts{grid-template-columns:1fr;gap:13px}
+ #platforms .diagram-label{font-size:.58rem;letter-spacing:.1em}
+ #platforms .diagram-note{font-size:.66rem}
+}
+@media(prefers-reduced-motion:reduce){#platforms .project-diagram .edge.flow,#platforms .project-diagram .edge.return,#platforms .project-diagram .pulse{animation:none!important}}
+</style>
+
+</head>
 <body><div class="grain" aria-hidden="true"></div><div class="vign" aria-hidden="true"></div>
 <header class="topbar"><div class="wrap inner"><a class="brand" href="../">Yasser Raafat</a><nav class="nav"><a href="../">Home</a><a href="#corefusion">CoreFusion</a><a href="#platforms">Platforms</a><a href="#experience">Experience</a><a href="../eval/">Evaluation</a></nav></div></header>
 <main>
@@ -40,44 +96,141 @@
 <div class="rule-row"><span class="idx">(06)</span><h3>Human-controlled actions</h3><p>A shared propose → review → apply path for side effects across publishing, migration, integrations, and provisioning. Sensitive actions require an explicit human decision.</p></div>
 <div class="rule-row"><span class="idx">(07)</span><h3>Real-time event layer</h3><p>Elixir/Phoenix processes, channels and PubSub for multi-client presence and event delivery, with OTP supervision and persisted state.</p></div>
 </div></section>
-<section class="content wrap" id="platforms"><p class="eyebrow">03 — Selected system builds</p><h2 class="section-title">Business software<br>with AI inside.</h2><div class="intro-grid"><p>Alongside developer tooling, I build complete software for operational businesses: multi-tenant commerce, internal systems, e-commerce, and automation that connects fragmented tools and data.</p><p>Client-specific systems are described without naming organizations or disclosing confidential implementation material. The diagrams show the system boundaries, not source code or credentials.</p></div>
-<h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem);margin:55px 0 0">Multi-tenant commerce platform</h3><p style="color:var(--muted);max-width:70ch;margin:14px 0 0">A commerce and marketing SaaS platform designed for multiple merchants: customer storefronts, merchant operations, platform-owner controls, subscriptions, commissions, inventory, delivery, marketing, support, and controlled AI-assisted actions. Core architecture includes Next.js, FastAPI, PostgreSQL row-level security, Redis, background workers, and adapter-based integrations.</p>
-<div class="diagram-wrap"><div class="diagram-head"><strong>Commerce / Tenant and action boundaries</strong><span>Data isolation · adapters · approvals</span></div><svg class="diagram diagram-desktop" viewBox="0 0 1000 270" role="img" aria-label="Multi-tenant commerce SaaS architecture with isolated tenant data and a controlled action executor">
-<defs><marker id="arrw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
-<rect class="node" x="20" y="40" width="210" height="90"/><text class="tiny muted" x="38" y="63">CUSTOMER SURFACE</text><text class="main" x="38" y="88">Tenant storefronts</text><text class="small muted" x="38" y="111">Brand · catalog · checkout</text>
-<rect class="node" x="20" y="155" width="210" height="90"/><text class="tiny muted" x="38" y="178">OPERATIONS</text><text class="main" x="38" y="203">Merchant dashboards</text><text class="small muted" x="38" y="226">Orders · inventory · CRM</text>
-<rect class="node-strong" x="300" y="86" width="190" height="115"/><text class="tiny muted" x="318" y="111">PLATFORM CORE</text><text class="big" x="318" y="141">Business APIs</text><text class="small muted" x="318" y="165">AuthZ · billing · workflows</text><path class="line" marker-end="url(#arrw)" d="M230 85H295 M230 200H270V150H295"/>
-<rect class="node" x="560" y="25" width="185" height="90"/><text class="tiny muted" x="578" y="48">DATA BOUNDARY</text><text class="main" x="578" y="73">PostgreSQL RLS</text><text class="small muted" x="578" y="96">Tenant-scoped records</text>
-<rect class="node" x="560" y="155" width="185" height="90"/><text class="tiny muted" x="578" y="178">INTEGRATIONS</text><text class="main" x="578" y="203">Payment · courier · geo</text><text class="small muted" x="578" y="226">Adapters · external APIs</text><path class="line" marker-end="url(#arrw)" d="M490 125H555 M490 160H525V200H555"/>
-<rect class="node-strong" x="815" y="86" width="165" height="115"/><text class="tiny muted" x="833" y="111">AI ACTION GATE</text><text class="main" x="833" y="141">Proposal</text><text class="small muted" x="833" y="163">Validate · approve</text><text class="small muted" x="833" y="181">Execute once</text><path class="line" marker-end="url(#arrw)" d="M745 200H780V144H810"/>
-<text class="tiny dim" x="20" y="265">TENANT CONTEXT IS ENFORCED AT THE DATA LAYER · AI CAN PROPOSE, NEVER BYPASS THE EXECUTOR</text></svg>
-<svg class="diagram diagram-mobile" viewBox="0 0 360 600" role="img" aria-label="Multi-tenant commerce SaaS vertical architecture">
-<defs><marker id="arrwm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
-<rect class="node" x="18" y="12" width="324" height="76"/><text class="tiny muted" x="34" y="35">CUSTOMER SURFACE</text><text class="main" x="34" y="58">Tenant storefronts</text><text class="small muted" x="34" y="77">Brand · catalog · checkout</text><path class="line" marker-end="url(#arrwm)" d="M180 88V112"/>
-<rect class="node" x="18" y="118" width="324" height="76"/><text class="tiny muted" x="34" y="141">OPERATIONS</text><text class="main" x="34" y="164">Merchant dashboards</text><text class="small muted" x="34" y="183">Orders · inventory · CRM</text><path class="line" marker-end="url(#arrwm)" d="M180 194V218"/>
-<rect class="node-strong" x="18" y="224" width="324" height="76"/><text class="tiny muted" x="34" y="247">PLATFORM CORE</text><text class="main" x="34" y="270">Business APIs</text><text class="small muted" x="34" y="289">AuthZ · billing · workflows</text><path class="line" marker-end="url(#arrwm)" d="M180 300V324"/>
-<rect class="node" x="18" y="330" width="324" height="76"/><text class="tiny muted" x="34" y="353">DATA BOUNDARY</text><text class="main" x="34" y="376">PostgreSQL RLS</text><text class="small muted" x="34" y="395">Tenant-scoped records</text><path class="line" marker-end="url(#arrwm)" d="M180 406V430"/>
-<rect class="node" x="18" y="436" width="324" height="76"/><text class="tiny muted" x="34" y="459">INTEGRATIONS</text><text class="main" x="34" y="482">Payments · courier · geo</text><text class="small muted" x="34" y="501">Adapters · external APIs</text><path class="line" marker-end="url(#arrwm)" d="M180 512V536"/>
-<rect class="node-strong" x="18" y="542" width="324" height="48"/><text class="main" x="34" y="572">Human-approved AI execution</text></svg><div class="diagram-caption"><span>Tenant isolation is enforced at the data boundary.</span><span>Illustrative system architecture</span></div></div>
-<h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem);margin:55px 0 0">Legal operations automation</h3><p style="color:var(--muted);max-width:70ch;margin:14px 0 0">Designed and deployed a production automation platform for a professional-services operation. Scheduled monitoring retrieves live case records, specialized agents handle retrieval, analysis, reconciliation and follow-up, and reporting pipelines generate operational briefs, exception alerts and staff-facing tools.</p>
-<div class="intro-grid"><p>Multi-agent orchestration across case retrieval, reporting, finance and communications. MCP-connected tools provide controlled access to email, shared documents, messaging and operational boards.</p><p>Integrated OpenAI GPT-5, Anthropic Claude and Google Gemini models for task-specific reasoning; Gemini image generation; Gemini Flash speech-to-text and text-to-speech; FastAPI, PostgreSQL, an SSE web chat and analytics.</p></div>
-<div class="diagram-wrap"><div class="diagram-head"><strong>Legal operations / Agent workflow</strong><span>Live retrieval · voice · controlled delivery</span></div><svg class="diagram diagram-desktop" viewBox="0 0 1000 270" role="img" aria-label="Anonymized legal operations workflow: live sources, orchestration, specialized agents, deterministic reporting and human approval">
-<defs><marker id="arrl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
-<rect class="node" x="20" y="70" width="190" height="120"/><text class="tiny muted" x="38" y="95">LIVE SOURCES</text><text class="main" x="38" y="124">Case portals</text><text class="small muted" x="38" y="147">Email · Drive · chat</text><text class="small muted" x="38" y="168">Operational boards</text>
-<rect class="node-strong" x="270" y="70" width="190" height="120"/><text class="tiny muted" x="288" y="95">ORCHESTRATION</text><text class="main" x="288" y="124">FastAPI + MCP</text><text class="small muted" x="288" y="147">Schedules · tool access</text><text class="small muted" x="288" y="168">Model routing · state</text>
-<rect class="node" x="520" y="20" width="200" height="72"/><text class="tiny muted" x="538" y="43">SPECIALIST AGENTS</text><text class="main" x="538" y="69">Retrieve · classify</text>
-<rect class="node" x="520" y="108" width="200" height="72"/><text class="tiny muted" x="538" y="131">SPECIALIST AGENTS</text><text class="main" x="538" y="157">Analyze · reconcile</text>
-<rect class="node" x="520" y="196" width="200" height="60"/><text class="tiny muted" x="538" y="218">VOICE INTERFACE</text><text class="main" x="538" y="242">STT · TTS · chat</text>
-<rect class="node-strong" x="790" y="70" width="190" height="120"/><text class="tiny muted" x="808" y="95">CONTROLLED OUTPUT</text><text class="main" x="808" y="124">Reports + alerts</text><text class="small muted" x="808" y="147">Analytics · audit trail</text><text class="small muted" x="808" y="168">Human approval gate</text>
-<path class="line" marker-end="url(#arrl)" d="M210 130H265 M460 130H515 M720 130H785"/><path class="line dash" d="M490 130V56H515 M490 130V232H515"/><text class="tiny dim" x="20" y="252">SCHEDULED RETRIEVAL → SPECIALIZED PROCESSING → DETERMINISTIC REPORTING → APPROVED DELIVERY</text></svg>
-<svg class="diagram diagram-mobile" viewBox="0 0 360 610" role="img" aria-label="Anonymized legal operations workflow vertical diagram">
-<defs><marker id="arrlm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
-<rect class="node" x="18" y="12" width="324" height="72"/><text class="tiny muted" x="34" y="35">LIVE SOURCES</text><text class="main" x="34" y="59">Case portals · email · Drive · chat</text><path class="line" marker-end="url(#arrlm)" d="M180 84V108"/>
-<rect class="node-strong" x="18" y="114" width="324" height="78"/><text class="tiny muted" x="34" y="137">ORCHESTRATION</text><text class="main" x="34" y="161">FastAPI + MCP</text><text class="small muted" x="34" y="180">Schedules · tool access · routing</text><path class="line" marker-end="url(#arrlm)" d="M180 192V216"/>
-<rect class="node" x="18" y="222" width="324" height="78"/><text class="tiny muted" x="34" y="245">SPECIALIST AGENTS</text><text class="main" x="34" y="269">Retrieve · classify · analyze</text><text class="small muted" x="34" y="288">Reconcile · prepare follow-up</text><path class="line" marker-end="url(#arrlm)" d="M180 300V324"/>
-<rect class="node" x="18" y="330" width="324" height="78"/><text class="tiny muted" x="34" y="353">VOICE + CHAT</text><text class="main" x="34" y="377">STT · TTS · SSE interface</text><text class="small muted" x="34" y="396">Model-specific capabilities</text><path class="line" marker-end="url(#arrlm)" d="M180 408V432"/>
-<rect class="node-strong" x="18" y="438" width="324" height="100"/><text class="tiny muted" x="34" y="461">CONTROLLED OUTPUT</text><text class="main" x="34" y="485">Reports + alerts</text><text class="small muted" x="34" y="506">Analytics · audit trail · approval</text><text class="small muted" x="34" y="525">No outward action without review</text><text class="tiny dim" x="18" y="575">SCHEDULE → PROCESS → REPORT → APPROVE</text></svg><div class="diagram-caption"><span>Project shown anonymously; no client names or records disclosed.</span><span>Illustrative workflow</span></div></div>
-<div class="rule-list"><div class="rule-row"><span class="idx">(01)</span><h3>Case monitoring</h3><p>Scheduled twice-daily portal checks, case-number-based record retrieval, change detection, reporting, and incident alerts.</p></div><div class="rule-row"><span class="idx">(02)</span><h3>Multi-agent workflow</h3><p>Specialized agents coordinate retrieval, analysis, reconciliation, executive reporting, communications triage and follow-up tasks.</p></div><div class="rule-row"><span class="idx">(03)</span><h3>Connected operations</h3><p>MCP integrations for email, documents, messaging and operational workspaces, backed by FastAPI services and PostgreSQL persistence.</p></div><div class="rule-row"><span class="idx">(04)</span><h3>Voice and interfaces</h3><p>Web chat streamed over SSE, analytics and voice-enabled interaction using speech-to-text and text-to-speech models.</p></div></div>
+<section class="content wrap" id="platforms">
+<p class="eyebrow">03 — Selected projects</p>
+<h2 class="section-title">Systems built<br>for real work.</h2>
+<div class="projects-lead">
+  <p>Four distinct builds across developer infrastructure, commerce operations, enterprise automation and customer-facing AI. Each case study shows the problem, the system boundary and the engineering that makes it work.</p>
+  <p>Private and client systems are presented without organization names, customer records, credentials or proprietary source code. Diagrams describe architecture at a safe, implementation-independent level.</p>
+</div>
+<div class="project-list">
+  <article class="project" id="commerce-platform">
+    <header class="project-head"><span class="project-no">01 / 04</span><h3 class="project-title">Multi-tenant commerce<br>&amp; operations platform</h3><span class="project-kind">Private product build</span></header>
+    <div class="project-summary">
+      <p class="thesis">A merchant platform that combines customer storefronts, back-office operations and platform-owner controls in one multi-tenant product.</p>
+      <p class="detail">Designed the system around tenant-isolated data and a unified operating model: catalogues, orders, inventory, suppliers, delivery, subscriptions, commissions, marketing, support and analytics. An AI agent can prepare business actions, but execution passes through a single validated approval boundary.</p>
+    </div>
+    <div class="project-diagram">
+      <div class="diagram-label"><span>System map / commerce platform</span><span>Tenant isolation · controlled execution</span></div>
+      <svg class="diagram wide-diagram" viewBox="0 0 960 224" role="img" aria-label="Commerce platform architecture showing customer storefronts and merchant console feeding platform services, tenant-isolated data, integrations and a human-approved action executor">
+        <defs><marker id="commerceArrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+        <g class="diagram-node"><rect class="node" x="8" y="32" width="172" height="68"/><text class="t-kicker" x="23" y="52">CUSTOMER</text><text class="t-title" x="23" y="75">Storefronts</text><text class="t-sub" x="23" y="90">Brand · catalogue · checkout</text></g>
+        <g class="diagram-node"><rect class="node" x="8" y="124" width="172" height="68"/><text class="t-kicker" x="23" y="144">MERCHANT</text><text class="t-title" x="23" y="167">Operations console</text><text class="t-sub" x="23" y="182">Orders · inventory · CRM</text></g>
+        <rect class="node em" x="248" y="76" width="190" height="76"/><text class="t-kicker" x="265" y="98">APPLICATION LAYER</text><text class="t-title" x="265" y="122">Platform services</text><text class="t-sub" x="265" y="139">AuthZ · billing · workflows</text>
+        <rect class="node" x="505" y="22" width="180" height="68"/><text class="t-kicker" x="521" y="43">DATA ISOLATION</text><text class="t-title" x="521" y="66">PostgreSQL RLS</text><text class="t-sub" x="521" y="81">Tenant-scoped records</text>
+        <rect class="node" x="505" y="134" width="180" height="68"/><text class="t-kicker" x="521" y="155">ADAPTERS</text><text class="t-title" x="521" y="178">External services</text><text class="t-sub" x="521" y="193">Payments · courier · geo</text>
+        <rect class="node em" x="755" y="76" width="196" height="76"/><text class="t-kicker" x="772" y="98">ACTION BOUNDARY</text><text class="t-title" x="772" y="122">Propose → approve</text><text class="t-sub" x="772" y="139">Validate · execute · audit</text>
+        <path class="edge flow" marker-end="url(#commerceArrow)" d="M180 66H242 M180 158H214V132H242 M438 100H499 M438 132H468V168H499 M685 56H718V93H749 M685 168H718V135H749"/><path class="edge return" d="M852 152V211H344V158"/><circle class="pulse" cx="214" cy="66" r="3"/><circle class="pulse" cx="718" cy="93" r="3"/>
+      </svg>
+<svg class="diagram mobile-diagram" viewBox="0 0 360 590" role="img" aria-label="Mobile commerce architecture: customer storefront and merchant operations connect to platform services, tenant-isolated data, service adapters and an approved action executor">
+<defs><marker id="cmob" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="12" width="324" height="62"/><text class="t-kicker" x="34" y="34">CUSTOMER</text><text class="t-title" x="34" y="57">Storefronts · catalogue · checkout</text><path class="edge flow" marker-end="url(#cmob)" d="M180 74V96"/>
+<rect class="node" x="18" y="102" width="324" height="62"/><text class="t-kicker" x="34" y="124">MERCHANT</text><text class="t-title" x="34" y="147">Orders · inventory · CRM</text><path class="edge flow" marker-end="url(#cmob)" d="M180 164V186"/>
+<rect class="node em" x="18" y="192" width="324" height="72"/><text class="t-kicker" x="34" y="214">APPLICATION LAYER</text><text class="t-title" x="34" y="238">Platform services</text><text class="t-sub" x="34" y="254">AuthZ · billing · workflows</text><path class="edge flow" marker-end="url(#cmob)" d="M180 264V286"/>
+<rect class="node" x="18" y="292" width="324" height="62"/><text class="t-kicker" x="34" y="314">DATA ISOLATION</text><text class="t-title" x="34" y="337">PostgreSQL row-level security</text><path class="edge flow" marker-end="url(#cmob)" d="M180 354V376"/>
+<rect class="node" x="18" y="382" width="324" height="62"/><text class="t-kicker" x="34" y="404">INTEGRATION ADAPTERS</text><text class="t-title" x="34" y="427">Payments · courier · geo</text><path class="edge flow" marker-end="url(#cmob)" d="M180 444V466"/>
+<rect class="node em" x="18" y="472" width="324" height="78"/><text class="t-kicker" x="34" y="494">AI ACTION BOUNDARY</text><text class="t-title" x="34" y="518">Propose → approve → execute</text><text class="t-sub" x="34" y="538">Validated · idempotent · auditable</text><path class="edge return" d="M328 550V572H32V12"/><circle class="pulse" cx="180" cy="186" r="3"/>
+<text class="t-kicker" x="18" y="587">TENANT CONTEXT IS ENFORCED AT THE DATA LAYER</text></svg>
+      <div class="diagram-note"><span>Shared application, tenant-scoped records and adapter-based integrations.</span><span>Conceptual architecture</span></div>
+    </div>
+    <div class="project-facts"><div class="fact"><b>Product surface</b><span>Storefronts, merchant dashboard, platform-owner console and customer support.</span></div><div class="fact"><b>Operating systems</b><span>Orders, inventory, purchasing, delivery, subscriptions, commissions and marketing.</span></div><div class="fact"><b>AI control</b><span>Deterministic agent proposes schema-validated actions; a shared executor enforces approval and idempotency.</span></div></div>
+    <p class="stack-line"><strong>Core stack</strong> Next.js · TypeScript · FastAPI · PostgreSQL RLS · Redis · BullMQ · Drizzle ORM · MCP</p>
+  </article>
+
+  <article class="project" id="legal-automation">
+    <header class="project-head"><span class="project-no">02 / 04</span><h3 class="project-title">Agentic legal operations<br>automation</h3><span class="project-kind">Confidential client system</span></header>
+    <div class="project-summary">
+      <p class="thesis">A production-deployed automation system that turns fragmented case, finance and communication workflows into coordinated operations.</p>
+      <p class="detail">Scheduled twice-daily monitoring retrieves case records by case number, detects changes and exceptions, and prepares operational reports. Specialized agents handle retrieval, analysis, reconciliation, staff monitoring, executive briefings, communications triage and follow-up.</p>
+    </div>
+    <div class="project-diagram">
+      <div class="diagram-label"><span>Workflow map / legal operations</span><span>Multi-agent · MCP · voice</span></div>
+      <svg class="diagram wide-diagram" viewBox="0 0 960 236" role="img" aria-label="Legal operations automation from live portals and business communications through a FastAPI orchestrator and specialist agents to deterministic reports, alerts and human-approved delivery">
+        <defs><marker id="legalArrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+        <rect class="node" x="8" y="68" width="174" height="100"/><text class="t-kicker" x="24" y="91">LIVE INPUTS</text><text class="t-title" x="24" y="116">Case portals</text><text class="t-sub" x="24" y="137">Email · Drive · messaging</text><text class="t-sub" x="24" y="153">Operational workspaces</text>
+        <rect class="node em" x="236" y="68" width="174" height="100"/><text class="t-kicker" x="252" y="91">ORCHESTRATION</text><text class="t-title" x="252" y="116">FastAPI + MCP</text><text class="t-sub" x="252" y="137">Schedules · tool registry</text><text class="t-sub" x="252" y="153">Model routing · state</text>
+        <rect class="node" x="464" y="20" width="190" height="66"/><text class="t-kicker" x="480" y="42">SPECIALISTS</text><text class="t-title" x="480" y="67">Retrieve · classify</text>
+        <rect class="node" x="464" y="100" width="190" height="66"/><text class="t-kicker" x="480" y="122">SPECIALISTS</text><text class="t-title" x="480" y="147">Analyze · reconcile</text>
+        <rect class="node" x="464" y="180" width="190" height="44"/><text class="t-kicker" x="480" y="198">VOICE</text><text class="t-title" x="535" y="207">STT · TTS</text>
+        <rect class="node em" x="710" y="68" width="240" height="100"/><text class="t-kicker" x="728" y="91">CONTROLLED OUTPUT</text><text class="t-title" x="728" y="116">Reports + alerts</text><text class="t-sub" x="728" y="137">Analytics · audit trail</text><text class="t-sub" x="728" y="153">Review before delivery</text>
+        <path class="edge flow" marker-end="url(#legalArrow)" d="M182 118H230 M410 118H458 M654 52H678V92H704 M654 133H704 M410 146H438V202H458"/><path class="edge return" d="M830 168V218H322V174"/><circle class="pulse" cx="438" cy="118" r="3"/><circle class="pulse" cx="678" cy="92" r="3"/>
+      </svg>
+<svg class="diagram mobile-diagram" viewBox="0 0 360 650" role="img" aria-label="Mobile legal automation workflow from live sources through orchestration and specialist agents to voice, reports and review">
+<defs><marker id="lmob" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="10" width="324" height="66"/><text class="t-kicker" x="34" y="32">LIVE INPUTS</text><text class="t-title" x="34" y="56">Case portals · email · Drive · chat</text><path class="edge flow" marker-end="url(#lmob)" d="M180 76V98"/>
+<rect class="node em" x="18" y="104" width="324" height="72"/><text class="t-kicker" x="34" y="126">ORCHESTRATION</text><text class="t-title" x="34" y="150">FastAPI + MCP</text><text class="t-sub" x="34" y="166">Schedules · tool access · model routing</text><path class="edge flow" marker-end="url(#lmob)" d="M180 176V198"/>
+<rect class="node" x="18" y="204" width="324" height="66"/><text class="t-kicker" x="34" y="226">SPECIALIST AGENTS / 01</text><text class="t-title" x="34" y="250">Retrieve · classify · detect changes</text><path class="edge flow" marker-end="url(#lmob)" d="M180 270V292"/>
+<rect class="node" x="18" y="298" width="324" height="66"/><text class="t-kicker" x="34" y="320">SPECIALIST AGENTS / 02</text><text class="t-title" x="34" y="344">Analyze · reconcile · prepare follow-up</text><path class="edge flow" marker-end="url(#lmob)" d="M180 364V386"/>
+<rect class="node" x="18" y="392" width="324" height="66"/><text class="t-kicker" x="34" y="414">VOICE + INTERFACE</text><text class="t-title" x="34" y="438">Gemini Flash STT/TTS · SSE chat</text><path class="edge flow" marker-end="url(#lmob)" d="M180 458V480"/>
+<rect class="node em" x="18" y="486" width="324" height="82"/><text class="t-kicker" x="34" y="508">CONTROLLED OUTPUT</text><text class="t-title" x="34" y="532">Reports · alerts · analytics</text><text class="t-sub" x="34" y="552">Human review before outward delivery</text><path class="edge return" d="M328 568V608H32V10"/><text class="t-kicker" x="18" y="634">LIVE RETRIEVAL → SPECIALIZED PROCESSING → REVIEW</text><circle class="pulse" cx="180" cy="198" r="3"/></svg>
+      <div class="diagram-note"><span>Live retrieval → specialist processing → deterministic reporting → reviewed delivery.</span><span>Client identity withheld</span></div>
+    </div>
+    <div class="project-facts"><div class="fact"><b>Agent network</b><span>Specialists for case retrieval, drafting support, finance, staff audit, briefings, messaging and follow-up.</span></div><div class="fact"><b>Connected tools</b><span>MCP access to Gmail, Drive, WhatsApp and operational workspaces; scheduled jobs and live portal retrieval.</span></div><div class="fact"><b>Human oversight</b><span>Reports and outward communications pass review gates; sensitive data handling is enforced in code.</span></div></div>
+    <p class="stack-line"><strong>Core stack</strong> Python · FastAPI · PostgreSQL · MCP · OpenAI GPT-5 · Anthropic Claude · Google Gemini · Gemini Flash STT/TTS · SSE · Playwright</p>
+  </article>
+
+  <article class="project" id="receptionist-ai">
+    <header class="project-head"><span class="project-no">03 / 04</span><h3 class="project-title">AI receptionist<br>for service businesses</h3><span class="project-kind">Product implementation</span></header>
+    <div class="project-summary">
+      <p class="thesis">A business-aware receptionist that can answer service questions, capture enquiries and move appointment requests into a structured booking flow.</p>
+      <p class="detail">The workflow is organized around each business’s services, FAQs, operating hours and appointment types. The assistant gathers missing booking details, checks availability, persists conversations and bookings, and flags uncertain or escalated interactions for staff.</p>
+    </div>
+    <div class="project-diagram">
+      <div class="diagram-label"><span>Interaction map / receptionist</span><span>Conversation → booking</span></div>
+      <svg class="diagram wide-diagram" viewBox="0 0 960 220" role="img" aria-label="AI receptionist flow from customer conversation through business knowledge and intent handling to slot filling, availability checks, booking, confirmation and staff escalation">
+        <defs><marker id="recArrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+        <rect class="node" x="8" y="48" width="160" height="88"/><text class="t-kicker" x="24" y="70">01 / ENTRY</text><text class="t-title" x="24" y="95">Customer</text><text class="t-sub" x="24" y="116">Question · enquiry</text>
+        <rect class="node" x="208" y="48" width="174" height="88"/><text class="t-kicker" x="224" y="70">02 / CONTEXT</text><text class="t-title" x="224" y="95">Business profile</text><text class="t-sub" x="224" y="116">Services · FAQs · hours</text>
+        <rect class="node em" x="422" y="48" width="174" height="88"/><text class="t-kicker" x="438" y="70">03 / AGENT</text><text class="t-title" x="438" y="95">Intent + slot fill</text><text class="t-sub" x="438" y="116">Clarify · answer · route</text>
+        <rect class="node" x="636" y="12" width="150" height="72"/><text class="t-kicker" x="652" y="34">04A / BOOK</text><text class="t-title" x="652" y="58">Availability</text><text class="t-sub" x="652" y="73">Validate slot</text>
+        <rect class="node" x="636" y="112" width="150" height="72"/><text class="t-kicker" x="652" y="134">04B / ESCALATE</text><text class="t-title" x="652" y="158">Staff handoff</text><text class="t-sub" x="652" y="173">Uncertain · complex</text>
+        <rect class="node em" x="826" y="48" width="126" height="88"/><text class="t-kicker" x="840" y="70">05 / RESULT</text><text class="t-title" x="840" y="95">Booking</text><text class="t-sub" x="840" y="116">Persist · confirm</text>
+        <path class="edge flow" marker-end="url(#recArrow)" d="M168 92H202 M382 92H416 M596 92H630V48 M596 92H630V148 M786 48H806V92H820"/><path class="edge return" d="M900 136V204H288V142"/><circle class="pulse" cx="630" cy="48" r="3"/><circle class="pulse" cx="806" cy="92" r="3"/>
+      </svg>
+<svg class="diagram mobile-diagram" viewBox="0 0 360 650" role="img" aria-label="Mobile AI receptionist flow from customer through business context and an agent to booking or staff escalation">
+<defs><marker id="rmob" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="10" width="324" height="60"/><text class="t-kicker" x="34" y="32">01 / CUSTOMER</text><text class="t-title" x="34" y="55">Question · enquiry · appointment</text><path class="edge flow" marker-end="url(#rmob)" d="M180 70V92"/>
+<rect class="node" x="18" y="98" width="324" height="68"/><text class="t-kicker" x="34" y="120">02 / BUSINESS CONTEXT</text><text class="t-title" x="34" y="144">Services · FAQs · hours · rules</text><path class="edge flow" marker-end="url(#rmob)" d="M180 166V188"/>
+<rect class="node em" x="18" y="194" width="324" height="76"/><text class="t-kicker" x="34" y="216">03 / RECEPTIONIST AGENT</text><text class="t-title" x="34" y="240">Understand · answer · collect details</text><text class="t-sub" x="34" y="258">Intent detection + slot filling</text><path class="edge flow" marker-end="url(#rmob)" d="M180 270V294"/>
+<rect class="node" x="18" y="300" width="324" height="70"/><text class="t-kicker" x="34" y="322">04A / BOOKING PATH</text><text class="t-title" x="34" y="346">Check availability · validate slot</text><path class="edge flow" marker-end="url(#rmob)" d="M180 370V394"/>
+<rect class="node em" x="18" y="400" width="324" height="72"/><text class="t-kicker" x="34" y="422">05 / CONFIRMED RESULT</text><text class="t-title" x="34" y="446">Persist booking · send confirmation</text><path class="edge return" d="M328 472V508H32V234"/>
+<rect class="node" x="18" y="528" width="324" height="64"/><text class="t-kicker" x="34" y="550">04B / ESCALATION PATH</text><text class="t-title" x="34" y="574">Uncertain request → staff handoff</text><path class="edge dash" d="M180 270V522"/><text class="t-kicker" x="18" y="622">CONVERSATION CONTEXT IS BUSINESS-SPECIFIC</text><circle class="pulse" cx="180" cy="294" r="3"/></svg>
+      <div class="diagram-note"><span>Business-specific context drives answers, booking validation and escalation.</span><span>Application workflow</span></div>
+    </div>
+    <div class="project-facts"><div class="fact"><b>Business context</b><span>Per-business services, FAQs, opening hours, appointment types and AI settings.</span></div><div class="fact"><b>Booking workflow</b><span>Intent detection, slot completion, availability validation, booking persistence and confirmation routing.</span></div><div class="fact"><b>Operations</b><span>Conversation inbox, transcripts, booking management, analytics and staff escalation.</span></div></div>
+    <p class="stack-line"><strong>Core stack</strong> Next.js · TypeScript · Vercel AI SDK · OpenRouter · Supabase · PostgreSQL · Vitest · Playwright</p>
+  </article>
+
+  <article class="project" id="research-pipeline">
+    <header class="project-head"><span class="project-no">04 / 04</span><h3 class="project-title">Multi-agent research<br>pipeline</h3><span class="project-kind">Public repository</span></header>
+    <div class="project-summary">
+      <p class="thesis">A four-agent research workflow that turns a topic into a structured report with traceable web evidence.</p>
+      <p class="detail">A lightweight orchestrator divides the research task across specialized agents. The system retrieves real web material, organizes and analyzes findings, and produces a grounded report with citations rather than a single unstructured model response.</p>
+    </div>
+    <div class="project-diagram">
+      <div class="diagram-label"><span>Agent map / research pipeline</span><span>Evidence-first synthesis</span></div>
+      <svg class="diagram wide-diagram" viewBox="0 0 960 210" role="img" aria-label="Multi-agent research pipeline from research question through search, evidence structuring, analysis and synthesis into a cited report">
+        <defs><marker id="resArrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+        <rect class="node" x="8" y="55" width="154" height="88"/><text class="t-kicker" x="24" y="77">INPUT</text><text class="t-title" x="24" y="102">Research query</text><text class="t-sub" x="24" y="123">Question · scope</text>
+        <rect class="node" x="202" y="55" width="160" height="88"/><text class="t-kicker" x="218" y="77">AGENT 01</text><text class="t-title" x="218" y="102">Research</text><text class="t-sub" x="218" y="123">Find live sources</text>
+        <rect class="node" x="402" y="55" width="160" height="88"/><text class="t-kicker" x="418" y="77">AGENT 02</text><text class="t-title" x="418" y="102">Structure</text><text class="t-sub" x="418" y="123">Extract evidence</text>
+        <rect class="node" x="602" y="55" width="150" height="88"/><text class="t-kicker" x="618" y="77">AGENT 03</text><text class="t-title" x="618" y="102">Analyze</text><text class="t-sub" x="618" y="123">Compare · connect</text>
+        <rect class="node em" x="792" y="55" width="160" height="88"/><text class="t-kicker" x="808" y="77">AGENT 04</text><text class="t-title" x="808" y="102">Report</text><text class="t-sub" x="808" y="123">Sourced synthesis</text>
+        <path class="edge flow" marker-end="url(#resArrow)" d="M162 99H196 M362 99H396 M562 99H596 M752 99H786"/><path class="edge return" d="M872 143V185H282V149"/><circle class="pulse" cx="196" cy="99" r="3"/><circle class="pulse" cx="786" cy="99" r="3"/>
+      </svg>
+<svg class="diagram mobile-diagram" viewBox="0 0 360 580" role="img" aria-label="Mobile four-agent research pipeline from a question through search, evidence structuring, analysis and report synthesis">
+<defs><marker id="qmob" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="10" width="324" height="60"/><text class="t-kicker" x="34" y="32">INPUT</text><text class="t-title" x="34" y="55">Research question + scope</text><path class="edge flow" marker-end="url(#qmob)" d="M180 70V92"/>
+<rect class="node" x="18" y="98" width="324" height="66"/><text class="t-kicker" x="34" y="120">AGENT 01 / RESEARCH</text><text class="t-title" x="34" y="144">Find and retrieve web sources</text><path class="edge flow" marker-end="url(#qmob)" d="M180 164V186"/>
+<rect class="node" x="18" y="192" width="324" height="66"/><text class="t-kicker" x="34" y="214">AGENT 02 / STRUCTURE</text><text class="t-title" x="34" y="238">Extract and organize evidence</text><path class="edge flow" marker-end="url(#qmob)" d="M180 258V280"/>
+<rect class="node" x="18" y="286" width="324" height="66"/><text class="t-kicker" x="34" y="308">AGENT 03 / ANALYZE</text><text class="t-title" x="34" y="332">Compare findings · connect evidence</text><path class="edge flow" marker-end="url(#qmob)" d="M180 352V374"/>
+<rect class="node em" x="18" y="380" width="324" height="70"/><text class="t-kicker" x="34" y="402">AGENT 04 / REPORT</text><text class="t-title" x="34" y="426">Synthesize a cited report</text><path class="edge return" d="M328 450V492H32V10"/><text class="t-kicker" x="18" y="530">SOURCE-GROUNDED SYNTHESIS</text><text class="t-sub" x="18" y="554">Each stage has a defined responsibility.</text><circle class="pulse" cx="180" cy="186" r="3"/></svg>
+      <div class="diagram-note"><span>Four specialized roles coordinated by a lightweight Python orchestrator.</span><span>Public project</span></div>
+    </div>
+    <div class="project-facts"><div class="fact"><b>Research</b><span>Retrieve source material from the live web for the requested topic.</span></div><div class="fact"><b>Analysis</b><span>Structure, compare and synthesize information across the collected evidence.</span></div><div class="fact"><b>Traceability</b><span>Deliver a grounded report with citations that let readers inspect the sources.</span></div></div>
+    <p class="stack-line"><strong>Core stack</strong> Python · Lightweight custom orchestrator · Web retrieval · Citation-grounded reporting <a class="project-link" href="https://github.com/YasserRa-fat/Multi-Agent-System" target="_blank" rel="noopener">View repository ↗</a></p>
+  </article>
+</div>
 </section>
 <section class="content wrap" id="experience"><p class="eyebrow">04 — Engineering experience</p><h2 class="section-title">Build, ship,<br>operate.</h2><div class="xp">
 <div class="xp-row"><div class="xp-date">Jun 2025 — Present</div><div><div class="xp-role">Senior AI Engineer</div><div class="xp-org">Alignerr · Full-time · Remote</div><p>Dedicated frontier-model projects focused on Claude Code behavior: multi-step reasoning, tool-use reliability, repository-level context, coding benchmarks, expert feedback loops and model-behavior evaluation.</p></div></div>
