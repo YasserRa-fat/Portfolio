@@ -1,26 +1,24 @@
-# Yasser Ahmad Raafat — Portfolio
+# Yasser Raafat — Portfolio
 
-Monochrome, motion-led portfolio. A landing page routes to two niche tracks:
+This site preserves the original monochrome editorial direction: oversized typography, restrained motion, thin rules, grain/vignette texture and two clear portfolio tracks.
 
-- **`/agentic/`** — Agentic AI & RAG Systems Engineer.
-- **`/eval/`** — LLM Post-Training & Evaluation Specialist.
+## Local preview
 
-Each is a self-contained single-page site (no build step). Shared design system:
-near-black + warm off-white, **Clash Display + General Sans** (Fontshare), **Lenis**
-smooth scroll + **GSAP ScrollTrigger**, custom cursor, magnetic buttons, kinetic
-mixed fill/outline headlines, and text-scramble reveals. Reduced-motion and no-JS safe.
+From this directory run:
 
-## View locally
+```powershell
+py -m http.server 8000
 ```
-python -m http.server 8080
-# then open http://127.0.0.1:8080/
-```
-(Fonts + motion libraries load from CDN, so an internet connection is needed.)
 
-## Hosting
-Served via GitHub Pages at `https://yasserra-fat.github.io/Portfolio/`.
+Open http://localhost:8000/ and visit `/agentic/` and `/eval/`.
 
-## Honesty note
-All claims trace to the résumé. CoreFusion is a full agentic platform **built solo as
-personal R&D — not publicly deployed**; its proof is the codebase (~1,110 tests) and an
-architecture walkthrough. No pricing is shown on the sites (shared on contact).
+The pages use one relative stylesheet (`site.css` from root and `../site.css` from subpages). Diagrams are inline SVG, so there are no missing diagram assets. All content remains visible without JavaScript. The Fontshare import is optional; system fallbacks keep the layout intact offline.
+
+## Files
+- `index.html` — original two-track landing page
+- `agentic/index.html` — systems engineering and architecture case studies
+- `eval/index.html` — post-training and evaluation
+- `site.css` — shared original-style design system
+- `robots.txt`, `sitemap.xml`, `llms.txt` — discovery metadata
+
+Private projects are described at the architecture level only. Client names, confidential materials, credentials and source code are not included.

@@ -1,0 +1,21 @@
+# Yasser Ahmad Raafat
+
+Senior AI Engineer and Systems Architect. Available worldwide for remote work.
+
+## Focus
+- Agentic AI and multi-agent orchestration
+- MCP integrations, tool authorization and execution boundaries
+- RAG, repository intelligence and scoped memory
+- Backend/platform engineering and business workflow automation
+- LLM post-training, RLHF/DPO/SFT data, coding benchmarks and evaluation
+
+## Portfolio
+- /agentic/: CoreFusion, multi-tenant commerce architecture, anonymized legal-operations automation, independent full-stack engineering
+- /eval/: G2i and Alignerr experience, post-training, benchmark design and model evaluation
+
+## Contact
+- Email: yasserwork123@gmail.com
+- LinkedIn: https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/
+- GitHub: https://github.com/YasserRa-fat
+
+No client names, confidential data, credentials or proprietary source code are published here.

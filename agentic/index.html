@@ -1,383 +1,89 @@
-<!doctype html>
-<html lang="en" dir="ltr" class="no-js">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yasser Raafat — Agentic AI & RAG Systems Engineer</title>
-<meta name="description" content="I design and build production agentic AI and RAG systems — real hybrid retrieval, guardrails, and evals. Builder of CoreFusion, a full autonomous agent platform (personal R&D, ~1,110 tests).">
-<meta name="color-scheme" content="dark">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yasser Raafat — Agentic AI & RAG Systems Engineer">
-<meta property="og:description" content="Production agents that actually ship — hybrid RAG, agent orchestration, evals & guardrails, MCP tooling. Builder of CoreFusion.">
-<meta property="og:url" content="https://yasserra-fat.github.io/Portfolio/agentic/">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Yasser Raafat — Agentic AI & RAG Systems Engineer">
-<link rel="canonical" href="https://yasserra-fat.github.io/Portfolio/agentic/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f4f2ee'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-weight='700' font-size='17' fill='%23060606' text-anchor='middle'%3EY%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@graph":[
-    {"@type":"Person","name":"Yasser Ahmad Raafat","jobTitle":"Agentic AI & RAG Systems Engineer",
-     "address":{"@type":"PostalPlace","addressLocality":"Cairo","addressCountry":"EG"},
-     "email":"mailto:yasserwork123@gmail.com","url":"https://yasserra-fat.github.io/Portfolio/agentic/",
-     "sameAs":["https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164","https://github.com/YasserRa-fat"],
-     "description":"Senior AI engineer who designs and builds production agentic AI and RAG systems. Architected and built CoreFusion, a full autonomous agent developer platform, solo as personal R&D."},
-    {"@type":"ProfessionalService","name":"Yasser Raafat — Agentic AI & RAG Engineering",
-     "serviceType":"Agentic AI and RAG production systems engineering",
-     "provider":{"@type":"Person","name":"Yasser Ahmad Raafat"},"areaServed":"Worldwide"}
-  ]
-}
-</script>
-<style>
-  :root{
-    --bg:#070707; --bg-2:#0d0d0d; --fg:#f3f1ec; --muted:#8c8c86; --dim:#565652;
-    --line:rgba(243,241,236,.13); --line-2:rgba(243,241,236,.26);
-    --maxw:1280px; --ease:cubic-bezier(.19,1,.22,1);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  body{background:var(--bg);color:var(--fg);font-family:"General Sans",system-ui,sans-serif;font-weight:400;line-height:1.5;overflow-x:hidden}
-  body.lock{overflow:hidden;height:100vh}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:clamp(20px,4vw,56px)}
-  .disp{font-family:"Clash Display","General Sans",sans-serif;font-weight:600;letter-spacing:-.02em}
-  .label{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500}
-
-  /* grain + vignette (monochrome texture, no color) */
-  .grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.045;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    animation:grain 7s steps(6) infinite}
-  @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-3%,4%)}80%{transform:translate(4%,2%)}100%{transform:translate(0,0)}}
-  .vign{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(130% 100% at 50% 0%,transparent 55%,rgba(0,0,0,.6))}
-
-  /* custom cursor */
-  .cursor{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--fg);z-index:90;pointer-events:none;transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s,opacity .3s;mix-blend-mode:difference}
-  .cursor.big{width:64px;height:64px;background:var(--fg)}
-  @media (hover:none){.cursor{display:none}}
-
-  /* nav */
-  header.nav{position:fixed;top:0;left:0;right:0;z-index:40;mix-blend-mode:difference}
-  .nav .bar{display:flex;align-items:center;justify-content:space-between;height:84px}
-  .brand{font-family:"Clash Display";font-weight:600;font-size:1.05rem;letter-spacing:.02em}
-  .navlinks{display:flex;gap:38px;font-size:.92rem;color:var(--fg)}
-  .navlinks a{position:relative;overflow:hidden;padding-bottom:2px}
-  .navlinks a span{display:inline-block;transition:transform .5s var(--ease)}
-  .navlinks a::after{content:attr(data-t);position:absolute;left:0;top:100%;transition:transform .5s var(--ease)}
-  .navlinks a:hover span{transform:translateY(-110%)}
-  .navlinks a:hover::after{transform:translateY(-100%)}
-
-  /* hero */
-  .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(40px,6vw,72px);position:relative;z-index:2}
-  .hero .top{position:absolute;top:clamp(110px,16vh,180px);left:0;right:0}
-  .hero .top .label{display:flex;align-items:center;gap:12px}
-  .dotpulse{width:7px;height:7px;border-radius:50%;background:var(--fg);animation:pulse 2.4s var(--ease) infinite}
-  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
-  h1.mega{font-family:"Clash Display";font-weight:600;line-height:.9;letter-spacing:-.03em;
-    font-size:clamp(2.4rem,11vw,10rem);text-transform:uppercase;max-width:100%}
-  h1.mega .line>span{white-space:nowrap}
-  .ln{display:block}
-  .ln.stroke{-webkit-text-stroke:1.5px var(--fg);color:transparent}
-  .ch{display:inline-block;will-change:transform,opacity}
-  .scramble{font-variant-ligatures:none}
-  .line{display:block;overflow:hidden}
-  .line > span{display:block;will-change:transform}
-  .hero .meta{display:flex;flex-wrap:wrap;gap:28px 64px;align-items:flex-end;justify-content:space-between;margin-top:clamp(26px,4vw,48px);border-top:1px solid var(--line);padding-top:26px}
-  .hero .meta .lead{font-size:clamp(1.05rem,1.7vw,1.35rem);max-width:30ch;font-weight:500}
-  .hero .meta .lead b{font-family:"Clash Display";font-weight:600}
-  .hero .meta .rt{max-width:34ch;color:var(--muted);font-size:1rem}
-
-  .magnetic{position:relative;display:inline-flex;align-items:center;gap:12px;padding:16px 26px;border:1px solid var(--line-2);border-radius:100px;font-weight:500;overflow:hidden;will-change:transform}
-  .magnetic .fill{position:absolute;inset:0;background:var(--fg);border-radius:100px;transform:translateY(101%);transition:transform .55s var(--ease);z-index:0}
-  .magnetic:hover .fill{transform:translateY(0)}
-  .magnetic span{position:relative;z-index:1;transition:color .4s var(--ease) .05s}
-  .magnetic:hover span{color:var(--bg)}
-  .scrollcue{position:absolute;right:0;bottom:clamp(40px,6vw,72px);writing-mode:vertical-rl;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-
-  /* marquee */
-  .marquee{border-block:1px solid var(--line);padding-block:26px;overflow:hidden;white-space:nowrap;position:relative;z-index:2;margin-top:clamp(40px,7vw,90px)}
-  .marquee .track{display:inline-flex;gap:0;will-change:transform;animation:slide 26s linear infinite}
-  .marquee .track span{font-family:"Clash Display";font-weight:600;font-size:clamp(1.6rem,3.4vw,2.6rem);text-transform:uppercase;padding-inline:clamp(22px,3vw,44px);color:var(--fg)}
-  .marquee .track span.o{color:transparent;-webkit-text-stroke:1px var(--line-2)}
-  @keyframes slide{to{transform:translateX(-50%)}}
-
-  /* sections */
-  section{position:relative;z-index:2;padding-block:clamp(80px,13vw,200px)}
-  .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(30px,5vw,56px)}
-  .eyebrow::before{content:"";width:40px;height:1px;background:var(--line-2)}
-  h2{font-family:"Clash Display";font-weight:600;letter-spacing:-.025em;line-height:.98;font-size:clamp(2.2rem,6.4vw,5.2rem);text-transform:uppercase}
-  .reveal-line{display:block;overflow:hidden}.reveal-line>span{display:block}
-
-  .proof{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:end;margin-top:clamp(36px,5vw,60px)}
-  .proof .rt p{color:var(--muted);font-size:1.06rem;margin-bottom:1.1rem;max-width:44ch}
-  .stats{display:flex;gap:clamp(26px,4vw,52px);flex-wrap:wrap;margin:30px 0 26px}
-  .stat .v{font-family:"Clash Display";font-weight:600;font-size:clamp(2rem,4vw,3.2rem);line-height:1}
-  .stat .k{color:var(--dim);font-size:.8rem;letter-spacing:.04em;margin-top:8px;display:block;max-width:16ch}
-  .note{color:var(--dim);font-size:.88rem;max-width:48ch;margin-bottom:22px}
-
-  .subs{margin-top:clamp(50px,7vw,90px);border-top:1px solid var(--line)}
-  .sub{display:grid;grid-template-columns:72px 1fr 1.3fr;gap:clamp(16px,3vw,44px);align-items:baseline;padding:clamp(22px,3vw,34px) 0;border-bottom:1px solid var(--line);transition:padding-left .5s var(--ease),background .5s var(--ease)}
-  .sub:hover{padding-left:18px}
-  .sub .idx{font-size:.8rem;color:var(--dim);letter-spacing:.1em}
-  .sub h3{font-family:"Clash Display";font-weight:600;font-size:clamp(1.3rem,2.4vw,2rem);text-transform:uppercase;letter-spacing:-.01em}
-  .sub p{color:var(--muted);font-size:.98rem}
-  @media(max-width:760px){.sub{grid-template-columns:1fr}.sub .idx{display:none}}
-
-  .xp .row{display:grid;grid-template-columns:200px 1fr;gap:clamp(16px,3vw,40px);padding:clamp(26px,3vw,38px) 0;border-top:1px solid var(--line)}
-  .xp .row:last-child{border-bottom:1px solid var(--line)}
-  .xp .when{color:var(--dim);font-size:.86rem;letter-spacing:.04em}
-  .xp .role{font-family:"Clash Display";font-weight:600;font-size:clamp(1.3rem,2.2vw,1.9rem);text-transform:uppercase;margin-bottom:6px}
-  .xp .org{color:var(--muted);font-size:.95rem;margin-bottom:12px}
-  .xp .row p{color:var(--muted);font-size:.98rem;max-width:62ch}
-  @media(max-width:760px){.xp .row{grid-template-columns:1fr;gap:8px}}
-
-  .work{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:start}
-  .steps{display:grid;gap:4px;margin-top:6px}
-  .steps .st{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
-  .steps .st:last-child{border-bottom:1px solid var(--line)}
-  .steps .num{color:var(--dim);font-size:.85rem}
-  .steps .b{font-family:"Clash Display";font-weight:600;text-transform:uppercase;letter-spacing:-.01em;font-size:1.15rem;display:block;margin-bottom:5px}
-  .steps .d{color:var(--muted);font-size:.96rem}
-  .pricing{margin-top:30px;padding:22px 24px;border:1px solid var(--line);border-radius:14px;color:var(--muted)}
-  .pricing b{color:var(--fg);font-family:"Clash Display";font-weight:600}
-  .slot{margin-top:clamp(50px,7vw,90px);border:1px dashed var(--line-2);border-radius:16px;padding:40px;text-align:center;color:var(--dim)}
-  .slot b{color:var(--fg);font-family:"Clash Display";font-weight:600}
-  @media(max-width:760px){.work{grid-template-columns:1fr}}
-
-  footer{position:relative;z-index:2;border-top:1px solid var(--line);padding-block:clamp(60px,9vw,120px)}
-  .cta-huge{font-family:"Clash Display";font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.9;font-size:clamp(2.6rem,10vw,9rem);display:inline-block}
-  .foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;margin-top:clamp(40px,6vw,70px);align-items:center}
-  .foot-row .links{display:flex;gap:30px;flex-wrap:wrap}
-  .foot-row a{color:var(--muted);font-size:.98rem;position:relative}
-  .foot-row a:hover{color:var(--fg)}
-  .copyright{color:var(--dim);font-size:.8rem;margin-top:22px}
-
-  ::selection{background:var(--fg);color:var(--bg)}
-  :focus-visible{outline:2px solid var(--fg);outline-offset:4px}
-
-  /* no-JS + reduced motion: everything visible, no transforms */
-  html.no-js .line>span,html.no-js .reveal-line>span{transform:none!important}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.marquee .track{animation:none!important}}
-  @media(max-width:820px){.navlinks{display:none}.proof,.work{grid-template-columns:1fr}.scrollcue{display:none}}
-</style>
-</head>
-<body>
-<script>document.documentElement.classList.remove('no-js');</script>
-<div class="grain" aria-hidden="true"></div>
-<div class="vign" aria-hidden="true"></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
-
-<header class="nav"><div class="wrap bar">
-  <a class="brand" href="#top" data-cursor>Yasser Raafat</a>
-  <nav class="navlinks" aria-label="Primary">
-    <a href="#corefusion" data-cursor data-t="CoreFusion"><span>CoreFusion</span></a>
-    <a href="#experience" data-cursor data-t="Experience"><span>Experience</span></a>
-    <a href="#work" data-cursor data-t="Work"><span>Work</span></a>
-    <a href="#contact" data-cursor data-t="Contact"><span>Contact</span></a>
-  </nav>
-</div></header>
-
-<main id="top">
-  <!-- HERO -->
-  <section class="hero wrap">
-    <div class="top">
-      <p class="label"><span class="dotpulse"></span><span class="scramble">Agentic AI · RAG · Evaluation — Cairo, remote</span></p>
-    </div>
-    <h1 class="mega" aria-label="Agentic AI Engineer">
-      <span class="line"><span class="ln fill">Agentic</span></span>
-      <span class="line"><span class="ln stroke">AI Engineer</span></span>
-    </h1>
-    <div class="meta">
-      <p class="lead"><b>Production agents that actually ship.</b></p>
-      <p class="rt">I design and build autonomous agent &amp; RAG systems — real hybrid retrieval, guardrails, and evaluation. Not a LangChain demo.</p>
-      <a class="magnetic" href="#work" data-cursor data-magnetic><span class="fill"></span><span>Start a project &nbsp;↗</span></a>
-    </div>
-    <span class="scrollcue">Scroll</span>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true"><div class="track" id="mq">
-    <span>Hybrid RAG</span><span class="o">Agent Orchestration</span><span>Evals &amp; Guardrails</span><span class="o">MCP &amp; Tooling</span><span>Docker Sandboxes</span><span class="o">pgvector · RRF</span>
-    <span>Hybrid RAG</span><span class="o">Agent Orchestration</span><span>Evals &amp; Guardrails</span><span class="o">MCP &amp; Tooling</span><span>Docker Sandboxes</span><span class="o">pgvector · RRF</span>
-  </div></div>
-
-  <!-- PROOF -->
-  <section class="wrap" id="corefusion">
-    <p class="eyebrow label scramble">01 — The proof</p>
-    <h2 class="reveal-line"><span>CoreFusion —</span></h2>
-    <div class="proof">
-      <h2 class="reveal-line" style="font-size:clamp(1.6rem,4vw,3rem)"><span>a full agentic dev platform, built solo.</span></h2>
-      <div class="rt">
-        <p>CoreFusion imports any Git repo and lets an autonomous LLM agent read, edit, run, and ship it inside isolated Docker sandboxes — with hybrid-RAG code intelligence, an RBAC-scoped memory plane, a runtime MCP integration layer, and a payments/LMS ecosystem around it.</p>
-        <div class="stats">
-          <div class="stat"><span class="v" data-count="1110" data-pre="~">~1,110</span><span class="k">test files · 853 py + 257 vitest</span></div>
-          <div class="stat"><span class="v" data-count="8">8</span><span class="k">core subsystems</span></div>
-          <div class="stat"><span class="v" data-count="1">1</span><span class="k">engineer · solo build</span></div>
-        </div>
-        <p class="note">Built as independent R&amp;D — architected and built solo, not publicly deployed. Proof is the codebase and an architecture walkthrough.</p>
-        <a class="magnetic" href="#contact" data-cursor data-magnetic><span class="fill"></span><span>Request a walkthrough</span></a>
-      </div>
-    </div>
-
-    <div class="subs">
-      <div class="sub" data-cursor><span class="idx">(01)</span><h3>Sovereign runtime</h3><p>Agent-owned loop: cached system prefix, hook registry, capability-gated tool dispatch, SSE streaming.</p></div>
-      <div class="sub" data-cursor><span class="idx">(02)</span><h3>Docker sandboxes</h3><p>Session-scoped containers — snapshot, revert, exec, log-stream, live app previews.</p></div>
-      <div class="sub" data-cursor><span class="idx">(03)</span><h3>Book-RAG</h3><p>Three-phase code intelligence: repo→books, graph links, hybrid dense+sparse search with a grep-vs-RAG decision layer.</p></div>
-      <div class="sub" data-cursor><span class="idx">(04)</span><h3>MIP memory</h3><p>RBAC-scoped hybrid retrieval on Postgres+pgvector: RRF fusion, typo tolerance, six-check write gate.</p></div>
-      <div class="sub" data-cursor><span class="idx">(05)</span><h3>MCP layer</h3><p>Multi-transport, ReBAC dispatch gate, agent-authored server pipeline, a credential vault the model can't read.</p></div>
-      <div class="sub" data-cursor><span class="idx">(06)</span><h3>Commerce + LMS</h3><p>One ledger/entitlements spine: wallets, bounty escrow, and a generate→publish→sell→certify LMS.</p></div>
-      <div class="sub" data-cursor><span class="idx">(07)</span><h3>Verification harness</h3><p>A wedge-proof Playwright live-test harness under a hard "not done until proven end-to-end" rule.</p></div>
-      <div class="sub" data-cursor><span class="idx">(08)</span><h3>5-rule constitution</h3><p>A sovereign-agent / stateless-executor split — the backend never interprets target-project bytes.</p></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="wrap" id="experience">
-    <p class="eyebrow label scramble">02 — Selected experience</p>
-    <h2 class="reveal-line"><span>Frontier-lab depth,</span></h2>
-    <h2 class="reveal-line"><span>shipped engineering.</span></h2>
-    <div class="xp" style="margin-top:clamp(36px,5vw,60px)">
-      <div class="row" data-cursor><div class="when">2024 — 2026</div><div><div class="role">LLM Post-Training Lead</div><div class="org">Outlier AI · Scale AI platform</div><p>Led 2,000+ expert contributors across RLHF/DPO/SFT on GPT-4o/4.5, Claude 3.5/4, Gemini 2.x, Llama 3/4. Drove Cursor's fast-apply fine-tune (~13× speedup, beat GPT-4/4o) and 40k+ prompts for Perplexity's r1-1776; +40% SWE-bench Verified accuracy.</p></div></div>
-      <div class="row" data-cursor><div class="when">2026 — now</div><div><div class="role">AI Engineer — Frontier Eval</div><div class="org">Alignerr</div><p>Post-training targeting Claude Code fine-tuning: multi-step reasoning, tool-use reliability, repo-level context — turning senior engineering judgment into high-signal RLHF/DPO/SFT data.</p></div></div>
-      <div class="row" data-cursor><div class="when">2025 — 2026</div><div><div class="role">Full-Stack Engineer</div><div class="org">Clove Restaurant · Cairo</div><p>Shipped a production platform (React/Zustand/Tailwind, Node/Express, Postgres+MySQL) on Render with CI/CD — real-time WebSocket chat, a loyalty engine, admin dashboard, live GPS tracking.</p></div></div>
-    </div>
-  </section>
-
-  <!-- WORK -->
-  <section class="wrap" id="work">
-    <p class="eyebrow label scramble">03 — Work with me</p>
-    <div class="work">
-      <div>
-        <h2 class="reveal-line"><span>The Production</span></h2>
-        <h2 class="reveal-line"><span>RAG Sprint.</span></h2>
-        <p class="note" style="font-size:1rem;color:var(--muted);margin-top:22px">A fixed-scope engagement that takes your agent/RAG idea from concept to a production-grade, evaluated system — not a demo that breaks in front of a customer.</p>
-        <div class="pricing"><b>Pricing shared on contact.</b><br>Scope and a quote follow a short call — every engagement is sized to the work.</div>
-      </div>
-      <div class="steps">
-        <div class="st"><span class="num">(01)</span><span><span class="b">Scope</span><span class="d">Map the data, the retrieval surface, and what "good" means as a measurable target.</span></span></div>
-        <div class="st"><span class="num">(02)</span><span><span class="b">Build</span><span class="d">Hybrid retrieval, guardrailed agent orchestration, and tool/MCP wiring — on your stack.</span></span></div>
-        <div class="st"><span class="num">(03)</span><span><span class="b">Eval-gate</span><span class="d">An evaluation harness that proves quality before anything ships to users.</span></span></div>
-        <div class="st"><span class="num">(04)</span><span><span class="b">Handoff</span><span class="d">Documented, tested, and walked through — yours to run and extend.</span></span></div>
-      </div>
-    </div>
-    <div class="slot"><b>Selected projects</b><br>Client case studies land here next — currently under NDA / in progress.</div>
-  </section>
-
-  <!-- CONTACT -->
-  <footer class="wrap" id="contact">
-    <a class="cta-huge" href="mailto:yasserwork123@gmail.com" data-cursor data-magnetic>Let's build →</a>
-    <div class="foot-row">
-      <div class="copyright">Yasser Ahmad Raafat · Cairo, Egypt<br>Available for select engagements · 2026</div>
-      <div class="links">
-        <a href="mailto:yasserwork123@gmail.com" data-cursor>Email</a>
-        <a href="https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164" target="_blank" rel="noopener" data-cursor>LinkedIn</a>
-        <a href="https://github.com/YasserRa-fat" target="_blank" rel="noopener" data-cursor>GitHub</a>
-      </div>
-    </div>
-  </footer>
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script>
-(function(){
-  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  /* ---- custom cursor + magnetic ---- */
-  var cur=document.getElementById('cursor');
-  if(fine && cur){
-    var cx=innerWidth/2,cy=innerHeight/2,tx=cx,ty=cy;
-    addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY},{passive:true});
-    (function loop(){cx+=(tx-cx)*.18;cy+=(ty-cy)*.18;cur.style.transform='translate('+cx+'px,'+cy+'px) translate(-50%,-50%)';requestAnimationFrame(loop)})();
-    document.querySelectorAll('[data-cursor]').forEach(function(el){
-      el.addEventListener('mouseenter',function(){cur.classList.add('big')});
-      el.addEventListener('mouseleave',function(){cur.classList.remove('big')});
-    });
-    document.querySelectorAll('[data-magnetic]').forEach(function(el){
-      el.addEventListener('mousemove',function(e){var r=el.getBoundingClientRect();el.style.transform='translate('+(e.clientX-(r.left+r.width/2))*.28+'px,'+(e.clientY-(r.top+r.height/2))*.4+'px)'});
-      el.addEventListener('mouseleave',function(){el.style.transform='translate(0,0)'});
-    });
-  } else if(cur){ cur.style.display='none'; }
-
-  if(reduce || !window.gsap){ return; }  /* content already visible; skip motion */
-
-  /* ---- Lenis smooth scroll synced to GSAP ---- */
-  if(window.Lenis){
-    var lenis=new Lenis({duration:1.15,easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},smoothWheel:true});
-    function raf(t){lenis.raf(t);requestAnimationFrame(raf)} requestAnimationFrame(raf);
-    if(window.ScrollTrigger){lenis.on('scroll',ScrollTrigger.update);}
-    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1){var t=document.querySelector(id);if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10})}}})});
-  }
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  /* ---- kinetic per-letter hero (Mat Voyce style) ---- */
-  function splitLetters(el){
-    var t=el.textContent, frag=document.createDocumentFragment();
-    for(var i=0;i<t.length;i++){var s=document.createElement('span');s.className='ch';s.textContent=(t[i]===' '?' ':t[i]);frag.appendChild(s);}
-    el.textContent=''; el.appendChild(frag);
-    return [].slice.call(el.querySelectorAll('.ch'));
-  }
-  var heroChars=[];
-  document.querySelectorAll('.hero .ln').forEach(function(ln){heroChars=heroChars.concat(splitLetters(ln));});
-  gsap.set(heroChars,{yPercent:116});
-  gsap.to(heroChars,{yPercent:0,duration:1.1,ease:'expo.out',stagger:.035,delay:.3});
-  gsap.from('.hero .meta > *',{y:26,opacity:0,duration:1,ease:'expo.out',stagger:.08,delay:1});
-
-  /* cursor-reactive lift on hero letters */
-  if(fine){
-    var heroEl=document.querySelector('.hero');
-    heroEl.addEventListener('mousemove',function(e){
-      for(var i=0;i<heroChars.length;i++){var ch=heroChars[i],r=ch.getBoundingClientRect();
-        var d=Math.hypot(e.clientX-(r.left+r.width/2),e.clientY-(r.top+r.height/2));
-        gsap.to(ch,{y:-20*Math.max(0,1-d/160),duration:.4,ease:'power2.out',overwrite:'auto'});}
-    });
-    heroEl.addEventListener('mouseleave',function(){gsap.to(heroChars,{y:0,duration:.5});});
-  }
-
-  /* ---- text scramble / decode on reveal ---- */
-  var glyphs='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/#*<>';
-  function scramble(el){
-    var full=el.getAttribute('data-final')||el.textContent; el.setAttribute('data-final',full);
-    var fr=0, total=16+full.length*2;
-    var id=setInterval(function(){
-      fr++; var out='', cut=(fr/total)*full.length;
-      for(var i=0;i<full.length;i++){var c=full[i];
-        if(/[^A-Za-z0-9]/.test(c)||i<cut){out+=c;}else{out+=glyphs[(Math.random()*glyphs.length)|0];}}
-      el.textContent=out; if(fr>=total){clearInterval(id);el.textContent=full;}
-    },26);
-  }
-  gsap.utils.toArray('.scramble').forEach(function(el){
-    ScrollTrigger.create({trigger:el,start:'top 94%',once:true,onEnter:function(){scramble(el);}});
-  });
-
-  /* section heading line reveals */
-  gsap.utils.toArray('.reveal-line>span').forEach(function(s){
-    gsap.set(s,{yPercent:110});
-    gsap.to(s,{yPercent:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:s,start:'top 88%'}});
-  });
-  /* rows / subs / cards fade-rise */
-  gsap.utils.toArray('.sub,.xp .row,.steps .st,.stat,.note,.pricing,.slot,.proof .rt p').forEach(function(el){
-    gsap.from(el,{y:30,opacity:0,duration:.9,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%'}});
-  });
-
-  /* stat count-up */
-  gsap.utils.toArray('.stat .v[data-count]').forEach(function(el){
-    var end=+el.getAttribute('data-count'),pre=el.getAttribute('data-pre')||'',o={n:0};
-    gsap.to(o,{n:end,duration:1.6,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%'},
-      onUpdate:function(){el.textContent=pre+Math.round(o.n).toLocaleString()}});
-  });
-
-  /* marquee skews with scroll velocity (weighted, By-Kin style) */
-  var mq=document.querySelector('.marquee');
-  if(mq && typeof lenis!=='undefined' && lenis){
-    lenis.on('scroll',function(e){var v=Math.max(-16,Math.min(16,(e.velocity||0)*.5));mq.style.transform='skewX('+(-v*0.35)+'deg)';});
-  }
-})();
-</script>
-</body>
-</html>
+<!doctype html><html lang="en" dir="ltr"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Yasser Raafat — Agentic AI &amp; Systems Engineering</title>
+<meta name="description" content="Production agentic AI systems, multi-agent orchestration, MCP architecture, retrieval and memory, voice workflows, and full-stack business software.">
+<meta name="theme-color" content="#070707"><meta name="color-scheme" content="dark"><meta property="og:type" content="website"><meta property="og:title" content="Yasser Raafat — Agentic AI &amp; Systems Engineering"><meta property="og:description" content="Agent runtimes, MCP, business workflow automation, and production software."><meta property="og:url" content="https://yasserra-fat.github.io/Portfolio/agentic/">
+<link rel="canonical" href="https://yasserra-fat.github.io/Portfolio/agentic/"><link rel="stylesheet" href="../site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Yasser Ahmad Raafat","jobTitle":"Senior AI Engineer","url":"https://yasserra-fat.github.io/Portfolio/agentic/","sameAs":["https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/","https://github.com/YasserRa-fat"],"knowsAbout":["Agentic AI","Multi-Agent Orchestration","MCP","FastAPI","Go","Elixir","PostgreSQL","RAG","STT","TTS"]}</script></head>
+<body><div class="grain" aria-hidden="true"></div><div class="vign" aria-hidden="true"></div>
+<header class="topbar"><div class="wrap inner"><a class="brand" href="../">Yasser Raafat</a><nav class="nav"><a href="../">Home</a><a href="#corefusion">CoreFusion</a><a href="#platforms">Platforms</a><a href="#experience">Experience</a><a href="../eval/">Evaluation</a></nav></div></header>
+<main>
+<section class="hero wrap"><div class="topline"><span class="label">01 / Agentic systems · MCP · Product engineering</span><span class="label right">Worldwide remote</span></div><h1>Production agents.<br><span class="stroke">Real systems.</span></h1><p class="lead">I design and build the engineering around AI models: autonomous runtimes, multi-agent workflows, MCP integrations, retrieval and memory, voice interfaces, and the business software that connects them to real operations.</p><div class="meta"><div class="strong">From model call<br>to working product.</div><div class="side">My work spans architecture, backend systems, data flows, integrations, user interfaces, and deployment — with safety boundaries and verification designed into the system rather than added afterward.</div></div></section>
+<div class="marquee" aria-hidden="true"><div class="track"><span>Agent orchestration</span><span class="outline">MCP tooling</span><span>Hybrid retrieval</span><span class="outline">Voice systems</span><span>Production APIs</span><span class="outline">Human approval</span><span>Agent orchestration</span><span class="outline">MCP tooling</span><span>Hybrid retrieval</span><span class="outline">Voice systems</span><span>Production APIs</span><span class="outline">Human approval</span></div></div>
+<section class="content wrap" id="corefusion"><p class="eyebrow">02 — CoreFusion / Autonomous developer platform</p><h2 class="section-title">An agent that<br>owns the loop.</h2>
+<div class="proof"><div><p>CoreFusion is an independently developed agentic developer platform. It imports a Git repository and gives an autonomous agent the tools to inspect, edit, execute, verify, and iterate inside isolated Docker sandboxes.</p><p>The central design decision is a strict sovereign-agent / stateless-executor split: the agent controls the plan and tool sequence; the backend exposes bounded primitives without embedding assumptions about the target language, framework, or build system.</p><p>Beyond the runtime, the platform includes repository code intelligence, scoped memory, a runtime MCP layer, collaborative review gates, and a commerce/LMS layer.</p></div><div><div class="statline"><div class="stat"><span class="v">Go</span><span class="k">Sandbox orchestration</span></div><div class="stat"><span class="v">OTP</span><span class="k">Fault-tolerant events</span></div><div class="stat"><span class="v">MCP</span><span class="k">Runtime tool ecosystem</span></div></div><p style="margin-top:20px">Independent product development. Source code and implementation details remain private; an architecture walkthrough is available on request.</p></div></div>
+<div class="diagram-wrap"><div class="diagram-head"><strong>CoreFusion / Runtime architecture</strong><span>Control · context · execution</span></div><svg class="diagram diagram-desktop" viewBox="0 0 1000 300" role="img" aria-label="CoreFusion architecture: agent loop, tool and context interfaces, executor primitives, and isolated sandbox">
+<defs><marker id="arrc" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node-strong" x="20" y="26" width="210" height="108"/><text class="tiny muted" x="38" y="51">01 / CONTROL</text><text class="big" x="38" y="79">Sovereign agent</text><text class="small muted" x="38" y="103">Plan · read · decide · verify</text>
+<rect class="node" x="285" y="26" width="210" height="108"/><text class="tiny muted" x="303" y="51">02 / INTERFACES</text><text class="big" x="303" y="79">MCP + tool registry</text><text class="small muted" x="303" y="103">Capabilities · ReBAC · hooks</text>
+<rect class="node" x="550" y="26" width="190" height="108"/><text class="tiny muted" x="568" y="51">03 / EXECUTION</text><text class="big" x="568" y="79">Stateless executor</text><text class="small muted" x="568" y="103">Container · filesystem · I/O</text>
+<rect class="node-strong" x="795" y="26" width="185" height="108"/><text class="tiny muted" x="813" y="51">04 / ISOLATION</text><text class="big" x="813" y="79">Docker sandbox</text><text class="small muted" x="813" y="103">Snapshot · revert · stream</text>
+<path class="line" marker-end="url(#arrc)" d="M230 80H280 M495 80H545 M740 80H790"/>
+<rect class="node" x="160" y="190" width="300" height="78"/><text class="tiny muted" x="180" y="214">CONTEXT PLANE</text><text class="main" x="180" y="240">Book-RAG · MIP memory · file versions</text>
+<rect class="node" x="540" y="190" width="300" height="78"/><text class="tiny muted" x="560" y="214">EVENT PLANE</text><text class="main" x="560" y="240">Go orchestration · Phoenix · SSE</text>
+<path class="line dash" d="M128 134V166H310V185 M645 134V166H690V185"/>
+<text class="tiny dim" x="20" y="290">DECISIONS STAY WITH THE AGENT · THE BACKEND EXPOSES PRIMITIVES, NOT PROJECT-SPECIFIC RULES</text>
+</svg>
+<svg class="diagram diagram-mobile" viewBox="0 0 360 560" role="img" aria-label="CoreFusion vertical architecture diagram">
+<defs><marker id="arrcm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<g><rect class="node-strong" x="18" y="12" width="324" height="78"/><text class="tiny muted" x="34" y="34">01 / CONTROL</text><text class="main" x="34" y="57">Sovereign agent</text><text class="small muted" x="34" y="76">Plan · read · decide · verify</text><path class="line" marker-end="url(#arrcm)" d="M180 90V116"/></g>
+<g><rect class="node" x="18" y="122" width="324" height="78"/><text class="tiny muted" x="34" y="144">02 / INTERFACES</text><text class="main" x="34" y="167">MCP + tool registry</text><text class="small muted" x="34" y="186">Capabilities · ReBAC · hooks</text><path class="line" marker-end="url(#arrcm)" d="M180 200V226"/></g>
+<g><rect class="node" x="18" y="232" width="324" height="78"/><text class="tiny muted" x="34" y="254">03 / EXECUTION</text><text class="main" x="34" y="277">Stateless executor</text><text class="small muted" x="34" y="296">Container · filesystem · I/O</text><path class="line" marker-end="url(#arrcm)" d="M180 310V336"/></g>
+<g><rect class="node-strong" x="18" y="342" width="324" height="78"/><text class="tiny muted" x="34" y="364">04 / ISOLATION</text><text class="main" x="34" y="387">Docker sandbox</text><text class="small muted" x="34" y="406">Snapshot · revert · stream</text></g>
+<path class="line dash" d="M180 420V445H90V460 M180 445H270V460"/><rect class="node" x="18" y="462" width="144" height="78"/><text class="tiny muted" x="30" y="485">CONTEXT</text><text class="small" x="30" y="508">Book-RAG · MIP</text><rect class="node" x="198" y="462" width="144" height="78"/><text class="tiny muted" x="210" y="485">EVENTS</text><text class="small" x="210" y="508">Go · Phoenix · SSE</text></svg><div class="diagram-caption"><span>Agent decisions are separated from low-level execution.</span><span>Illustrative system architecture</span></div></div>
+<div class="rule-list">
+<div class="rule-row"><span class="idx">(01)</span><h3>Sovereign runtime</h3><p>Agent-owned planning and tool loop, cached system prefix, append-only context, file versioning, pre/post-tool hooks, and provider-agnostic model transport streamed over SSE.</p></div>
+<div class="rule-row"><span class="idx">(02)</span><h3>Isolated execution</h3><p>Go-powered Docker orchestration for container lifecycle, snapshot/revert, command execution, filesystem access, and live log streaming, with gRPC between runtime components.</p></div>
+<div class="rule-row"><span class="idx">(03)</span><h3>Book-RAG intelligence</h3><p>Repository-to-book indexing, workflow chains, cross-workflow links, keyword-to-symbol summaries, and a grep-versus-RAG decision layer that loads only relevant context.</p></div>
+<div class="rule-row"><span class="idx">(04)</span><h3>Scoped memory</h3><p>PostgreSQL/pgvector memory with hybrid dense/sparse retrieval, trigram and edit-distance tolerance, reciprocal-rank fusion, scoped access, and write validation.</p></div>
+<div class="rule-row"><span class="idx">(05)</span><h3>Runtime MCP</h3><p>Multi-transport integration, relationship-based authorization, agent-authored server lifecycle, discovery and auto-wiring, plus credential isolation so model context cannot read secrets.</p></div>
+<div class="rule-row"><span class="idx">(06)</span><h3>Human-controlled actions</h3><p>A shared propose → review → apply path for side effects across publishing, migration, integrations, and provisioning. Sensitive actions require an explicit human decision.</p></div>
+<div class="rule-row"><span class="idx">(07)</span><h3>Real-time event layer</h3><p>Elixir/Phoenix processes, channels and PubSub for multi-client presence and event delivery, with OTP supervision and persisted state.</p></div>
+</div></section>
+<section class="content wrap" id="platforms"><p class="eyebrow">03 — Selected system builds</p><h2 class="section-title">Business software<br>with AI inside.</h2><div class="intro-grid"><p>Alongside developer tooling, I build complete software for operational businesses: multi-tenant commerce, internal systems, e-commerce, and automation that connects fragmented tools and data.</p><p>Client-specific systems are described without naming organizations or disclosing confidential implementation material. The diagrams show the system boundaries, not source code or credentials.</p></div>
+<h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem);margin:55px 0 0">Multi-tenant commerce platform</h3><p style="color:var(--muted);max-width:70ch;margin:14px 0 0">A commerce and marketing SaaS platform designed for multiple merchants: customer storefronts, merchant operations, platform-owner controls, subscriptions, commissions, inventory, delivery, marketing, support, and controlled AI-assisted actions. Core architecture includes Next.js, FastAPI, PostgreSQL row-level security, Redis, background workers, and adapter-based integrations.</p>
+<div class="diagram-wrap"><div class="diagram-head"><strong>Commerce / Tenant and action boundaries</strong><span>Data isolation · adapters · approvals</span></div><svg class="diagram diagram-desktop" viewBox="0 0 1000 270" role="img" aria-label="Multi-tenant commerce SaaS architecture with isolated tenant data and a controlled action executor">
+<defs><marker id="arrw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="20" y="40" width="210" height="90"/><text class="tiny muted" x="38" y="63">CUSTOMER SURFACE</text><text class="main" x="38" y="88">Tenant storefronts</text><text class="small muted" x="38" y="111">Brand · catalog · checkout</text>
+<rect class="node" x="20" y="155" width="210" height="90"/><text class="tiny muted" x="38" y="178">OPERATIONS</text><text class="main" x="38" y="203">Merchant dashboards</text><text class="small muted" x="38" y="226">Orders · inventory · CRM</text>
+<rect class="node-strong" x="300" y="86" width="190" height="115"/><text class="tiny muted" x="318" y="111">PLATFORM CORE</text><text class="big" x="318" y="141">Business APIs</text><text class="small muted" x="318" y="165">AuthZ · billing · workflows</text><path class="line" marker-end="url(#arrw)" d="M230 85H295 M230 200H270V150H295"/>
+<rect class="node" x="560" y="25" width="185" height="90"/><text class="tiny muted" x="578" y="48">DATA BOUNDARY</text><text class="main" x="578" y="73">PostgreSQL RLS</text><text class="small muted" x="578" y="96">Tenant-scoped records</text>
+<rect class="node" x="560" y="155" width="185" height="90"/><text class="tiny muted" x="578" y="178">INTEGRATIONS</text><text class="main" x="578" y="203">Payment · courier · geo</text><text class="small muted" x="578" y="226">Adapters · external APIs</text><path class="line" marker-end="url(#arrw)" d="M490 125H555 M490 160H525V200H555"/>
+<rect class="node-strong" x="815" y="86" width="165" height="115"/><text class="tiny muted" x="833" y="111">AI ACTION GATE</text><text class="main" x="833" y="141">Proposal</text><text class="small muted" x="833" y="163">Validate · approve</text><text class="small muted" x="833" y="181">Execute once</text><path class="line" marker-end="url(#arrw)" d="M745 200H780V144H810"/>
+<text class="tiny dim" x="20" y="265">TENANT CONTEXT IS ENFORCED AT THE DATA LAYER · AI CAN PROPOSE, NEVER BYPASS THE EXECUTOR</text></svg>
+<svg class="diagram diagram-mobile" viewBox="0 0 360 600" role="img" aria-label="Multi-tenant commerce SaaS vertical architecture">
+<defs><marker id="arrwm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="12" width="324" height="76"/><text class="tiny muted" x="34" y="35">CUSTOMER SURFACE</text><text class="main" x="34" y="58">Tenant storefronts</text><text class="small muted" x="34" y="77">Brand · catalog · checkout</text><path class="line" marker-end="url(#arrwm)" d="M180 88V112"/>
+<rect class="node" x="18" y="118" width="324" height="76"/><text class="tiny muted" x="34" y="141">OPERATIONS</text><text class="main" x="34" y="164">Merchant dashboards</text><text class="small muted" x="34" y="183">Orders · inventory · CRM</text><path class="line" marker-end="url(#arrwm)" d="M180 194V218"/>
+<rect class="node-strong" x="18" y="224" width="324" height="76"/><text class="tiny muted" x="34" y="247">PLATFORM CORE</text><text class="main" x="34" y="270">Business APIs</text><text class="small muted" x="34" y="289">AuthZ · billing · workflows</text><path class="line" marker-end="url(#arrwm)" d="M180 300V324"/>
+<rect class="node" x="18" y="330" width="324" height="76"/><text class="tiny muted" x="34" y="353">DATA BOUNDARY</text><text class="main" x="34" y="376">PostgreSQL RLS</text><text class="small muted" x="34" y="395">Tenant-scoped records</text><path class="line" marker-end="url(#arrwm)" d="M180 406V430"/>
+<rect class="node" x="18" y="436" width="324" height="76"/><text class="tiny muted" x="34" y="459">INTEGRATIONS</text><text class="main" x="34" y="482">Payments · courier · geo</text><text class="small muted" x="34" y="501">Adapters · external APIs</text><path class="line" marker-end="url(#arrwm)" d="M180 512V536"/>
+<rect class="node-strong" x="18" y="542" width="324" height="48"/><text class="main" x="34" y="572">Human-approved AI execution</text></svg><div class="diagram-caption"><span>Tenant isolation is enforced at the data boundary.</span><span>Illustrative system architecture</span></div></div>
+<h3 class="display" style="font-size:clamp(1.5rem,3vw,2.4rem);margin:55px 0 0">Legal operations automation</h3><p style="color:var(--muted);max-width:70ch;margin:14px 0 0">Designed and deployed a production automation platform for a professional-services operation. Scheduled monitoring retrieves live case records, specialized agents handle retrieval, analysis, reconciliation and follow-up, and reporting pipelines generate operational briefs, exception alerts and staff-facing tools.</p>
+<div class="intro-grid"><p>Multi-agent orchestration across case retrieval, reporting, finance and communications. MCP-connected tools provide controlled access to email, shared documents, messaging and operational boards.</p><p>Integrated OpenAI GPT-5, Anthropic Claude and Google Gemini models for task-specific reasoning; Gemini image generation; Gemini Flash speech-to-text and text-to-speech; FastAPI, PostgreSQL, an SSE web chat and analytics.</p></div>
+<div class="diagram-wrap"><div class="diagram-head"><strong>Legal operations / Agent workflow</strong><span>Live retrieval · voice · controlled delivery</span></div><svg class="diagram diagram-desktop" viewBox="0 0 1000 270" role="img" aria-label="Anonymized legal operations workflow: live sources, orchestration, specialized agents, deterministic reporting and human approval">
+<defs><marker id="arrl" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="20" y="70" width="190" height="120"/><text class="tiny muted" x="38" y="95">LIVE SOURCES</text><text class="main" x="38" y="124">Case portals</text><text class="small muted" x="38" y="147">Email · Drive · chat</text><text class="small muted" x="38" y="168">Operational boards</text>
+<rect class="node-strong" x="270" y="70" width="190" height="120"/><text class="tiny muted" x="288" y="95">ORCHESTRATION</text><text class="main" x="288" y="124">FastAPI + MCP</text><text class="small muted" x="288" y="147">Schedules · tool access</text><text class="small muted" x="288" y="168">Model routing · state</text>
+<rect class="node" x="520" y="20" width="200" height="72"/><text class="tiny muted" x="538" y="43">SPECIALIST AGENTS</text><text class="main" x="538" y="69">Retrieve · classify</text>
+<rect class="node" x="520" y="108" width="200" height="72"/><text class="tiny muted" x="538" y="131">SPECIALIST AGENTS</text><text class="main" x="538" y="157">Analyze · reconcile</text>
+<rect class="node" x="520" y="196" width="200" height="60"/><text class="tiny muted" x="538" y="218">VOICE INTERFACE</text><text class="main" x="538" y="242">STT · TTS · chat</text>
+<rect class="node-strong" x="790" y="70" width="190" height="120"/><text class="tiny muted" x="808" y="95">CONTROLLED OUTPUT</text><text class="main" x="808" y="124">Reports + alerts</text><text class="small muted" x="808" y="147">Analytics · audit trail</text><text class="small muted" x="808" y="168">Human approval gate</text>
+<path class="line" marker-end="url(#arrl)" d="M210 130H265 M460 130H515 M720 130H785"/><path class="line dash" d="M490 130V56H515 M490 130V232H515"/><text class="tiny dim" x="20" y="252">SCHEDULED RETRIEVAL → SPECIALIZED PROCESSING → DETERMINISTIC REPORTING → APPROVED DELIVERY</text></svg>
+<svg class="diagram diagram-mobile" viewBox="0 0 360 610" role="img" aria-label="Anonymized legal operations workflow vertical diagram">
+<defs><marker id="arrlm" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#a7a7a0" stroke-width="1"/></marker></defs>
+<rect class="node" x="18" y="12" width="324" height="72"/><text class="tiny muted" x="34" y="35">LIVE SOURCES</text><text class="main" x="34" y="59">Case portals · email · Drive · chat</text><path class="line" marker-end="url(#arrlm)" d="M180 84V108"/>
+<rect class="node-strong" x="18" y="114" width="324" height="78"/><text class="tiny muted" x="34" y="137">ORCHESTRATION</text><text class="main" x="34" y="161">FastAPI + MCP</text><text class="small muted" x="34" y="180">Schedules · tool access · routing</text><path class="line" marker-end="url(#arrlm)" d="M180 192V216"/>
+<rect class="node" x="18" y="222" width="324" height="78"/><text class="tiny muted" x="34" y="245">SPECIALIST AGENTS</text><text class="main" x="34" y="269">Retrieve · classify · analyze</text><text class="small muted" x="34" y="288">Reconcile · prepare follow-up</text><path class="line" marker-end="url(#arrlm)" d="M180 300V324"/>
+<rect class="node" x="18" y="330" width="324" height="78"/><text class="tiny muted" x="34" y="353">VOICE + CHAT</text><text class="main" x="34" y="377">STT · TTS · SSE interface</text><text class="small muted" x="34" y="396">Model-specific capabilities</text><path class="line" marker-end="url(#arrlm)" d="M180 408V432"/>
+<rect class="node-strong" x="18" y="438" width="324" height="100"/><text class="tiny muted" x="34" y="461">CONTROLLED OUTPUT</text><text class="main" x="34" y="485">Reports + alerts</text><text class="small muted" x="34" y="506">Analytics · audit trail · approval</text><text class="small muted" x="34" y="525">No outward action without review</text><text class="tiny dim" x="18" y="575">SCHEDULE → PROCESS → REPORT → APPROVE</text></svg><div class="diagram-caption"><span>Project shown anonymously; no client names or records disclosed.</span><span>Illustrative workflow</span></div></div>
+<div class="rule-list"><div class="rule-row"><span class="idx">(01)</span><h3>Case monitoring</h3><p>Scheduled twice-daily portal checks, case-number-based record retrieval, change detection, reporting, and incident alerts.</p></div><div class="rule-row"><span class="idx">(02)</span><h3>Multi-agent workflow</h3><p>Specialized agents coordinate retrieval, analysis, reconciliation, executive reporting, communications triage and follow-up tasks.</p></div><div class="rule-row"><span class="idx">(03)</span><h3>Connected operations</h3><p>MCP integrations for email, documents, messaging and operational workspaces, backed by FastAPI services and PostgreSQL persistence.</p></div><div class="rule-row"><span class="idx">(04)</span><h3>Voice and interfaces</h3><p>Web chat streamed over SSE, analytics and voice-enabled interaction using speech-to-text and text-to-speech models.</p></div></div>
+</section>
+<section class="content wrap" id="experience"><p class="eyebrow">04 — Engineering experience</p><h2 class="section-title">Build, ship,<br>operate.</h2><div class="xp">
+<div class="xp-row"><div class="xp-date">Jun 2025 — Present</div><div><div class="xp-role">Senior AI Engineer</div><div class="xp-org">Alignerr · Full-time · Remote</div><p>Dedicated frontier-model projects focused on Claude Code behavior: multi-step reasoning, tool-use reliability, repository-level context, coding benchmarks, expert feedback loops and model-behavior evaluation.</p></div></div>
+<div class="xp-row"><div class="xp-date">2024 — 2025</div><div><div class="xp-role">LLM Post-Training Lead</div><div class="xp-org">G2i · Contract · Remote</div><p>Led large distributed expert-contributor programs for RLHF, DPO and SFT, coordinating data quality, annotation operations, coding benchmarks and evaluation workflows for frontier-model programs.</p></div></div>
+<div class="xp-row"><div class="xp-date">Mar 2022 — Present</div><div><div class="xp-role">Independent Full-Stack &amp; AI Systems Engineer</div><div class="xp-org">Project-based client engineering · Remote</div><p>Built in-house business software and ERP workflows for retail and gaming-shop operations, e-commerce storefronts, internal dashboards, APIs, integrations and operational data analysis using Spring Boot, FastAPI, Node.js, NestJS, React, PostgreSQL, MongoDB and Redis.</p></div></div>
+<div class="xp-row"><div class="xp-date">Jan 2023 — Present</div><div><div class="xp-role">Founder &amp; Architect — CoreFusion</div><div class="xp-org">Independent product development</div><p>Architecting and building an autonomous developer platform spanning agent runtime, isolated execution, repository intelligence, memory, MCP integrations, approval workflows and product infrastructure.</p></div></div>
+</div></section>
+<section class="cta wrap" id="contact"><p class="eyebrow">Available worldwide · Remote</p><h2>Have a difficult system to build?</h2><p>Agentic AI, multi-agent automation, MCP integrations, backend architecture, or a full product build — share the problem and the constraints.</p><div class="links"><a href="mailto:yasserwork123@gmail.com">Email Yasser ↗</a><a href="https://www.linkedin.com/in/yasser-ahmed-raafat-592a2b164/" target="_blank" rel="noopener">LinkedIn ↗</a><a href="https://github.com/YasserRa-fat" target="_blank" rel="noopener">GitHub ↗</a></div></section>
+</main><div class="wrap footer"><span>Yasser Ahmad Raafat · 2026</span><span>Agentic AI · Systems engineering · Product delivery</span></div></body></html>
